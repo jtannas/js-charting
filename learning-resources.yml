@@ -7,7 +7,7 @@ Resources:
   - name: Oh shit, git!
     address: http://ohshitgit.com/
     notes:
-      - Colourful but but plain language instructions for how to fix various mistakes in git
+      - Colourful but but plain language instructions on how to fix mistakes in git
   - name: Eslint Getting Started guide
     address: https://eslint.org/docs/user-guide/getting-started
     notes:
@@ -34,18 +34,27 @@ Resources:
         name: Data Formats
         notes:
           - JSON and XML are the most common data formats in APIs
-          - "which is specified in the header via the 'content-type' property (eg. Content-Type: Application/JSON)"
-          - The request header can contain a propert for 'Accept' to specify which content-type the responses can be
-          - If the server is unable to respond in the 'Accept' format, it responds with an error
+          - >
+            Which data format is specified in the header via the 'content-type'
+            property (eg. Content-Type: Application/JSON)"
+          - The request header can contain a propert for 'Accept' to specify which
+            content-type the responses can be.
+          - If the server is unable to respond in the 'Accept' format,
+            it responds with an error
       - number: 4
         name: Authentication, Part 1
         notes:
-          - 'Basic Authentication' is the classic username+password way of authenticating users
-          - It has a shortcoming of using the same credentials to manage the account as to use the API
+          - Basic Authentication is the classic username and password way of
+            authenticating users
+          - It has a shortcoming of using the same credentials to manage the
+            account as to use the API
           - API keys were conceived as a way around this
-          - API keys are strings uniquely associated to an account and are associated with a given set of permissions
-          - They can be given and revoked without affecting the overall account(s) that they are bound to
-          - They are commonly passed to the server via the URL, less commonly in the request header
+          - API keys are strings uniquely associated to an account
+          - API Keys are often associated with a given set of permissions
+          - They can be given and revoked without affecting the overall account(s)
+            that they are bound to
+          - They are commonly passed to the server via the URL, less commonly in
+            the request header
       - number: 5
         name: Authentication, Part 2
         notes:
@@ -58,64 +67,85 @@ Resources:
             - User tells the client to connect to the server
             - The client redirects the user to the server, along with a callback URL
             - The server authenticates the user
-            - The server provides the user with an authorization code (in the background) and redirects them back to the callback URL
-            - The client receives the authorization code and, together with it's own secret API key, makes a request for an access token to the server
-            - The server uses the secret key to confirm the client identity and the authorization code to confirm the user identity
-            - The server gives the client an Access Token so the client can access the server API on behalf of the user.
+            - The server provides the user with an authorization code (in the background)
+              and redirects them back to the callback URL
+            - The client receives the authorization code and, together with it's
+              own secret API key, makes a request for an access token to the server
+            - The server uses the secret key to confirm the client identity and the
+              authorization code to confirm the user identity
+            - The server gives the client an Access Token so the client can access
+              the server API on behalf of the user.
           - How OAuth1 differs:
-            - The client has to request a 'request token' as part of the initial redirecting of the user to the server. This request token is then used
-            as part of the request for the Access Token.
-            - OAuth1 requests must be digitally signed to prevent tampering. OAuth2 lets HTTPS take care of this.
-            - OAuth2 supports time-limited tokens that expire. OAuth1 does not.
-            - OAuth2 also supports 'scope' which limits the permissions of a given Access Token. This allows limiting what clients can do.
+            - The client has to request a 'request token' as part of the initial
+              redirecting of the user to the server. This request token is then
+              used as part of the request for the Access Token.
+            - OAuth1 requests must be digitally signed to prevent tampering.
+              OAuth2 lets HTTPS take care of this.
+            - OAuth2 supports time-limited tokens that expire.
+              OAuth1 does not.
+            - OAuth2 also supports 'scope' which limits the permissions of a given
+              Access Token. This allows limiting what clients can do.
       - number: 6
         name: API Design
         notes:
-          - Architectural Styles:
-            - SOAP: Formnerly meaning 'Simple Object Access Protocol', it is an XML based design with a focus on messaging and standard structures for requests and responses.
-            - ReST: Meaning 'Representational State Transfer', it is an open design with a focus on manipulating resources and is based around conventions and idempotency.
-          - Design Steps:
+          Architectural Styles:
+            SOAP: >
+              Formerly meaning "Simple Object Access Protocol", it is an XML based
+              design with a focus on messaging and standard structures for requests
+              and responses.
+            ReST: >
+              Meaning 'Representational State Transfer', it is an open design with
+              a focus on manipulating resources and is based around conventions and
+              idempotency.
+          Design Steps:
             - Decide what resources should be available
             - Assign URLs to those resources
-            - Decide what actions the client should be able to perform on those resources (i.e. what methods)
+            - Decide what actions the client should be able to perform on those
+              resources (i.e. what methods)
             - Decide what information is needed from the client for each of those actions
-          - ReST design:
-            - Plurals of resource names are for accessing lists or for creating new instances (e.g. <website>/orders/)
-            - These can be followed by the primary key for details or for actions on a single resource (e.g. <website>/orders/<pkey>)
-            - There are mixed opinions on how to handle foreign keys (e.g. <website>/customers/<customer_id>/orders/<order_id> vs adding the customer_id as a required request parameter)
-            - URL endpoints can be followed by a query string to filter the results (e.g. <website>/orders?(size=large|size=medium)&price>15  )
-            - ReST APIs should also support pagination to break up the results into smaller sets (e.g. <website>/orders?page=2&size=200  )
-          - Homework:
-            - Example 1:
-              - Subject: The Instagram API
-                Questions:
-                  - Question: What resources does Instagram make available?
-                    Answer:
-                      - Users
-                      - Relationships
-                      - Media
-                      - Comments
-                      - Likes
-                      - Tags
-                      - Locations
-                  - Question: What is unique identifier for users?
-                    Answer: user-id
-                  - Question: For the endpoint users/self/media/liked, what is the name of the parameter that limits the number of media results returned?
-                    Answer: count
-            - Example 2:
-              - Subject: The Facebook API
-                Questions:
-                  - Question: What 3 terms does Facebook use to describe what the Graph API is composed of?
-                    Answer: ['nodes', 'edges', 'fields']
-                  - Question: What does 'me' in the /me endpoint translate to as a convenience?
-                    Answer: It translates to the user_id of the current user
-            - Example 3:
-              - Subject: The Twitter API
-                Questions:
-                  - Question: What 4 resources, referred to as "objects", does Twitter make available?
-                    Answer: ['Tweet', 'User', 'Entities', 'Extended Entities']
-                  - Question: What parameter is required to create a new favorite?
-                    Answer: The numerical ID of the Tweet to like
+          ReST design:
+            - Plurals of resource names are for accessing lists or for creating new
+              instances (e.g. <website>/orders/)
+            - These can be followed by the primary key for details or for actions on
+              a single resource (e.g. <website>/orders/<pkey>)
+            - There are mixed opinions on how to handle foreign keys
+              (e.g. <website>/customers/<customer_id>/orders/<order_id> vs adding the
+              customer_id as a required request parameter)
+            - URL endpoints can be followed by a query string to filter the results
+              (e.g. <website>/orders?(size=large|size=medium)&price>15  )
+            - ReST APIs should also support pagination to break up the results into
+              smaller sets (e.g. <website>/orders?page=2&size=200  )
+        homework:
+          - Subject: The Instagram API
+            Questions:
+              - Question: What resources does Instagram make available?
+                Answer:
+                  - Users
+                  - Relationships
+                  - Media
+                  - Comments
+                  - Likes
+                  - Tags
+                  - Locations
+              - Question: What is unique identifier for users?
+                Answer: user-id
+              - Question: "For the endpoint users, self, media, and liked, what is the
+                name of the parameter that limits the number of media results returned?"
+                Answer: count
+          - Subject: The Facebook API
+            Questions:
+              - Question: What 3 terms does Facebook use to describe what the Graph API
+                is composed of?
+                Answer: ['nodes', 'edges', 'fields']
+              - Question: What does 'me' in the /me endpoint translate to as a convenience?
+                Answer: It translates to the user_id of the current user
+          - Subject: The Twitter API
+            Questions:
+              - Question: What 4 resources, referred to as "objects", does Twitter make
+                available?
+                Answer: ['Tweet', 'User', 'Entities', 'Extended Entities']
+              - Question: What parameter is required to create a new favorite?
+                Answer: The numerical ID of the Tweet to like
       - number: 7
         name: Real-Time Communication
         notes:
