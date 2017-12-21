@@ -135,18 +135,74 @@ Resources:
           - Subject: The Facebook API
             Questions:
               - Question: What 3 terms does Facebook use to describe what the Graph API
-                is composed of?
+                          is composed of?
                 Answer: ['nodes', 'edges', 'fields']
               - Question: What does 'me' in the /me endpoint translate to as a convenience?
                 Answer: It translates to the user_id of the current user
           - Subject: The Twitter API
             Questions:
               - Question: What 4 resources, referred to as "objects", does Twitter make
-                available?
+                          available?
                 Answer: ['Tweet', 'User', 'Entities', 'Extended Entities']
               - Question: What parameter is required to create a new favorite?
                 Answer: The numerical ID of the Tweet to like
       - number: 7
         name: Real-Time Communication
         notes:
-          - TODO
+          Integrations:
+            - APIs allow systems to share information
+            - An example is deleting an email on your phone and then having it disappear
+              on your desktop view soon after
+            - These are known as integrations
+          Client-Driven Integration:
+            - This is when the actions are being performed on the client side and
+              then sent to the server
+            - An example is sending an email from your computer-to-computer
+            - Only a single request is needed, since the client is initiating the action
+          Server-Driven Integration:
+            - This is when the actions are being performed on the server
+            - The client doesn't necessarily know when the actions are being taken
+            - An example is when you receive an email on your email server
+            - There are a few techniques for updating the client:
+                Polling: The client repeatedly asks for the resource. This is inefficient
+                  though, since frequent requests are needed to reduce the delay between
+                  server and client updates. This sucks up bandwidth and CPU time.
+                Long Polling: This is a variation of polling, where the server doesn't
+                  respond to a request for the updated resource until the resource actually
+                  changes. That way, bandwidth and CPU time is conserved. Though better than
+                  polling, it still has a problem in that it requires the client and server
+                  to maintain an open connection.
+                Webhooks: The problem with the above methods is that the client is the
+                  only one making requests. Webhooks allow the server to make requests
+                  to the client with the updated reources. This effectively makes
+                  both sides act as both clients and servers. The client provides the
+                  server with a callback URL that it is listening to for requests, then
+                  the server communicates updates to that adddress. This is not always
+                  possible though due to CPU & connection constraints (eg. in smartphones).
+                Subscription Webhooks: These are an extension on to webhooks to help
+                  automate the process. The client sends the a request to the server
+                  for updates along with a callback URL to send them to. The server
+                  acknowledges the request, the waits for updates to occur. When updates
+                  occur, the server sends them along like in a regular webhook.
+      - number: 8
+        name: Implementation
+        notes:
+          - A client program implements an API when it follows the API's rules in
+            making requests to that API.
+          - A server implements the API by listening to requests to the API and
+            responding appropriately.
+          - Along with the server software, it is common to publish documentation
+            of the rules for interacting with the API as a client.
+          - There are a few ways to interact with an API:
+              HTTP Clients: These are generic programs for building up http requests
+                by inputting the information. They're slow and manual, but very
+                flexible and transparent. This makes them good for testing and
+                experimentation.
+              Code: This is the meat of what APIs are built for - computer-to-computer
+                communication. For popular APIs, there tend to be ready made libraries
+                for accessing them. If not, generic requests libraries can be used
+                instead.
+              Wrappers: Certain applications (eg. Zapier) wrap generic HTTP clients
+                to provide added functionality and support. They don't do anything
+                new, but are useful for people who don't have the technical skillset
+                to interact with APIs with code.
