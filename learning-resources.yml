@@ -206,3 +206,9 @@ Resources:
                 to provide added functionality and support. They don't do anything
                 new, but are useful for people who don't have the technical skillset
                 to interact with APIs with code.
+  - name: Build Node.js RESTful APIs in 10 Minutes
+    address: https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
+    notes:
+      - Followed along building a node API (saved on github as hello-API)
+      - It seems like a good place to start for forking pieces for a RESTful API
+      - This is beyond what I need for the project though - I only need a local API
