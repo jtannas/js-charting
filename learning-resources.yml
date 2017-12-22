@@ -212,3 +212,7 @@ Resources:
       - Followed along building a node API (saved on github as hello-API)
       - It seems like a good place to start for forking pieces for a RESTful API
       - This is beyond what I need for the project though - I only need a local API
+  - name: How to Create Node.js Modules
+    address: https://docs.npmjs.com/getting-started/creating-node-modules
+  - name: Creating and Publishing a node.js module
+    address: https://quickleft.com/blog/creating-and-publishing-a-node-js-module/
