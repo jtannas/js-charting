@@ -24,6 +24,14 @@ editor configurations when working in the project containing it.
 This is a settings file for the eslint tool - a linter for javascript/ecmascript
 code.
 
+### `.gitignore`
+Tells git which files to exclude from version control.
+
+### `graphing-defaults.json`
+This file contains the default settings for the graphing API as a JSON object. The
+setting therein can be overridden through the options parameter of the `drawBarChart`
+API.
+
 ### `index.html`
 The index.html is for demonstrating the API once it is built. The intent is to be
 able to open the file in a browser and see the results.

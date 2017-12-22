@@ -1,5 +1,8 @@
+var _ = require('lodash');
+var DEFAULTS = require('./graphing-defaults.json');
+
 module.exports = {
   drawBarChart: function(data,  options,  element){
-    // TODO
+    var settings = _.merge({}, DEFAULTS, options);
   }
 };
