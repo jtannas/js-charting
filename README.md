@@ -40,6 +40,11 @@ from this file.
 This is a file listing out the various resources I used when learning how to build
 this project, along with notes on each of them.
 
+### `package.json`
+Package.json files are a feature of node.js - the server side javascript framework.
+They are used to track metadata about the package (e.g. dependencies, authors, etc...).
+I just have them for my linter (ESLint).
+
 ### `Project Stretch - Bar Chart Project Evaluation Criteria.pdf`
 These are the instructions given to me for the project.
 
