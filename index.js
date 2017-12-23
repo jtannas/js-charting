@@ -1,8 +1,10 @@
-var _ = require('lodash');
-var DEFAULTS = require('./graphing-defaults.json');
-
-module.exports = {
-  drawBarChart: function(data,  options,  element){
-    var settings = _.merge({}, DEFAULTS, options);
+var DEFAULTS = {
+  "container": {
+    "width": "640px",
+    "height": "480px"
   }
+};
+
+var drawBarChart = function(data,  options,  element){
+  var settings = $.extend(true, {}, DEFAULTS, options);
 };
