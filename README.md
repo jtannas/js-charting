@@ -27,11 +27,6 @@ code.
 ### `.gitignore`
 Tells git which files to exclude from version control.
 
-### `graphing-defaults.json`
-This file contains the default settings for the graphing API as a JSON object. The
-setting therein can be overridden through the options parameter of the `drawBarChart`
-API.
-
 ### `index.html`
 The index.html is for demonstrating the API once it is built. The intent is to be
 able to open the file in a browser and see the results.
@@ -44,14 +39,6 @@ from this file.
 ### `learning-resources.yml`
 This is a file listing out the various resources I used when learning how to build
 this project, along with notes on each of them.
-
-### `package-lock.json`
-This file keeps a 'history' of the dependencies installed and their versions. It is
-useful for being able to reconstruct the exact dependencies that a project used.
-
-### `package.json`
-Package.json files are a feature of node.js - the server side javascript framework.
-They are used to track metadata about the package (e.g. dependencies, authors, etc...)
 
 ### `Project Stretch - Bar Chart Project Evaluation Criteria.pdf`
 These are the instructions given to me for the project.
