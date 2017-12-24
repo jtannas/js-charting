@@ -216,3 +216,8 @@ Resources:
     address: https://docs.npmjs.com/getting-started/creating-node-modules
   - name: Creating and Publishing a node.js module
     address: https://quickleft.com/blog/creating-and-publishing-a-node-js-module/
+  - name: Vertical Bar Graph
+    address: https://foundation.zurb.com/building-blocks/blocks/bar-graph.html
+    notes:
+      - Used as inspiration for the HTML & CSS aspect of the project
+      - Doesn't include any javascript, so I'm free to build the API however I feel like
