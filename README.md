@@ -15,6 +15,16 @@ Here, I will be keeping a listing of the files and their purposes.
 Github gists take their name from the first file in them, taken in alphanumerical
 order. This filename starts with a space. It is purely to give the gist a nicer name.
 
+### `create-dom-object-from-json.js`
+Drawing a bar chart is a more specialized version of the problem "draw an object on a
+webpage from a specification". JQuery is great for this, but I wanted a generic 
+function for building an object from a JSON specification. I then use this to draw
+the core portions of the bar chart.
+
+### `draw-bar-chart.js`
+This implements the drawBarChart API and the helper functions that are specific to
+drawing bar charts.
+
 ### `.editorconfig`
 This is a file given by lighthouse labs to help keep editor configurations consistent
 across their students. It interacts with a plugin to common code editors to set the
@@ -32,9 +42,8 @@ The index.html is for demonstrating the API once it is built. The intent is to b
 able to open the file in a browser and see the results.
 
 ### `index.js`
-This is the entry point for the code that I am building - kind of like a command
-hub. All interaction with the graphing code should be done via functions exported
-from this file.
+This is the javascript for index html file. It is for making example charts - the
+actual API is not implemented here
 
 ### `learning-resources.yml`
 This is a file listing out the various resources I used when learning how to build
