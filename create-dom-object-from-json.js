@@ -30,12 +30,11 @@ $.fn.extend({
   }
 });
 
-var createDomObjectFromJson = function(domObjectJson, $parentElement) {
+var createDomObjectFromJson = function(domObjectJson) {
   var $element = $(document.createElement(domObjectJson.type));
   $element.setAttrs(domObjectJson.attributes || {});
   (domObjectJson.children || []).forEach(function(child){
     $element.append(createDomObjectFromJson(child));
   });
-  if( $parentElement ) { $parentElement.append($element); }
   return $element;
 };

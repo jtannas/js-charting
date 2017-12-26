@@ -24,7 +24,7 @@ $(document).ready(function(){
       }
     ]
   };
-  createDomObjectFromJson(testData, $('body'));
+  $('body').append(createDomObjectFromJson(testData));
 });
 
 
