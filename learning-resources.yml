@@ -221,3 +221,9 @@ Resources:
     notes:
       - Used as inspiration for the HTML & CSS aspect of the project
       - Doesn't include any javascript, so I'm free to build the API however I feel like
+  - name: Stack Overflow Helped with jQuery Calls
+    address: https://stackoverflow.com/questions/47964992/no-effect-from-calling-jquery-method-from-its-function-object
+    notes:
+      - I learned more about javascript & it's use of the 'this' keyword from this
+      - It let me refactor to make a generic object builder instead of a chart builder
+      - Now I can use it to make the charts
