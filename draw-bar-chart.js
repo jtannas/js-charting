@@ -5,15 +5,18 @@ var barChartBarUnits = function(amount, units){
     'attributes': {
       'class': 'units',
       'innerHTML': amount + units
-  }};
+    }
+  };
 };
 
-var barChartBarDescription = {
-  'type': 'div',
-  'attributes': {
-    'class': 'description',
-    'innerHTML': 'Default description'
-  }
+var barChartBarDescription = function(description){
+  return {
+    'type': 'div',
+    'attributes': {
+      'class': 'description',
+      'innerHTML': description
+    }
+  };
 };
 
 var barChartBar = {
@@ -28,7 +31,7 @@ var barChartBar = {
   },
   'children': [
     barChartBarUnits(100, 'mm'),
-    barChartBarDescription
+    barChartBarDescription('description')
   ]
 };
 
