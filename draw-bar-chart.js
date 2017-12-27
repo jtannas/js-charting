@@ -1,13 +1,14 @@
 // requires jquery and create-dom-object-from-json.js
-var barChartBarUnits = {
-  'type': 'div',
-  'attributes': {
-    'class': 'units',
-    'innerHTML': '100mm'
-  }
+var barChartBarUnits = function(amount, units){
+  return {
+    'type': 'div',
+    'attributes': {
+      'class': 'units',
+      'innerHTML': amount + units
+  }};
 };
 
-var barChartBarDescription =     {
+var barChartBarDescription = {
   'type': 'div',
   'attributes': {
     'class': 'description',
@@ -26,7 +27,7 @@ var barChartBar = {
     }
   },
   'children': [
-    barChartBarUnits,
+    barChartBarUnits(100, 'mm'),
     barChartBarDescription
   ]
 };
