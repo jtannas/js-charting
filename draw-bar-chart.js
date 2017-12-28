@@ -57,24 +57,25 @@
 //   ]
 // };
 
-// var barChartContents = {
-//   'type': 'ul',
-//   'attributes': {
-//     'class': 'contents',
-//     'css': {
-//       'background-color': '#cccccc'
-//     }
-//   },
-//   'children': [
-//     barChartAxis,
-//     barChartBar,
-//     barChartBar,
-//     barChartBar,
-//     barChartBar
-//   ]
-// };
 
-BarChart.prototype = new DomObjectJson();
+function BarChartContents(data, options){
+  var defaults = {
+    'type': 'ul',
+    'attributes': {
+      'class': 'contents',
+      'css': {
+        'background-color': '#012345'
+      }
+    },
+    'children': []
+  };
+  var userSettings = getSettingsObject();
+  userSettings = (userSettings['BarChartContents'] || {});
+  var objSettings = $.extend(true, {}, defaults, userSettings, options);
+  DomObjectJson.call(this, objSettings);
+}
+BarChartContents.prototype = new DomObjectJson();
+
 function BarChart(data, options){
   var defaults = {
     'type': 'div',
@@ -92,13 +93,13 @@ function BarChart(data, options){
   userSettings = (userSettings['barChart'] || {});
   var objSettings = $.extend(true, {}, defaults, userSettings, options);
   DomObjectJson.call(this, objSettings);
-}
 
+  this.children.push(new BarChartContents(data, options));
+}
+BarChart.prototype = new DomObjectJson();
 
 var drawBarChart = function(data, options, element){
   var $chart = new BarChart(data, options);
-  // TODO: apply data to chart
-  // TODO: apply special options
   element.append($chart.create());
   return $chart;
 };
