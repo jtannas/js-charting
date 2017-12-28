@@ -33,6 +33,7 @@ var getSettingsObject = function(){
   return ("SETTINGS" in window) ? SETTINGS : {};
 };
 
+DomObjectJson.prototype = null;
 function DomObjectJson(options){
   var defaults = {
     type: 'div',
