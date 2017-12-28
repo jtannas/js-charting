@@ -1,5 +1,5 @@
 // requires jquery
-ownKeyIntersection = function(object1, object2){
+var ownKeyIntersection = function(object1, object2){
   var sharedKeys = [];
   for (var property in object1){
     if (object1.hasOwnProperty(property) && object2.hasOwnProperty(property)){
@@ -29,10 +29,23 @@ $.fn.extend({
   }
 });
 
+var getSettingsObject = function(){
+  return ("SETTINGS" in window) ? SETTINGS : {};
+};
+
 function DomObjectJson(options){
-  this.type = (options.type || 'div');
-  this.attributes = (options.attributes || {});
-  this.children = (options.children || []);
+  var defaults = {
+    type: 'div',
+    attributes: {},
+    children: []
+  };
+  var userSettings = getSettingsObject();
+  userSettings = (userSettings['DomObjectJson'] || {});
+
+  var objSettings = $.extend(true, {}, defaults, userSettings, options);
+  this.type = objSettings.type;
+  this.attributes = objSettings.attributes;
+  this.children = objSettings.children;
 }
 
 DomObjectJson.prototype = {
