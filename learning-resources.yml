@@ -227,3 +227,7 @@ Resources:
       - I learned more about javascript & it's use of the 'this' keyword from this
       - It let me refactor to make a generic object builder instead of a chart builder
       - Now I can use it to make the charts
+  - name: Inheritance and the Prototype Chain
+    address: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+    notes:
+      - Helped me figure out object oriented programming for javascript
