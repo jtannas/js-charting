@@ -33,7 +33,6 @@ var getSettingsObject = function(){
   return ("SETTINGS" in window) ? SETTINGS : {};
 };
 
-DomObjectJson.prototype = null;
 function DomObjectJson(options){
   var defaults = {
     type: 'div',
@@ -48,6 +47,7 @@ function DomObjectJson(options){
   this.attributes = objSettings.attributes;
   this.children = objSettings.children;
 }
+DomObjectJson.prototype = null;
 
 DomObjectJson.prototype = {
   create: function(){
