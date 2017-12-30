@@ -43,19 +43,23 @@
 //   }
 // };
 
-// var barChartAxis = {
-//   'type': 'li',
-//   'attributes': {
-//     'class': 'axis'
-//   },
-//   'children': [
-//     barChartAxisLabel,
-//     barChartAxisLabel,
-//     barChartAxisLabel,
-//     barChartAxisLabel,
-//     barChartAxisLabel
-//   ]
-// };
+function BarChartAxis(data, options){
+  var defaults = {
+    'type': 'li',
+    'attributes': {
+      'class': 'axis',
+      'css': {
+        'background-color': 'red'
+      }
+    },
+    'children': []
+  };
+  var userSettings = getSettingsObject();
+  userSettings = (userSettings['BarChartAxis'] || {});
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  HtmlSpec.call(this, objSettings);
+}
+BarChartContents.prototype = new HtmlSpec();
 
 
 function BarChartContents(data, options){
@@ -73,6 +77,8 @@ function BarChartContents(data, options){
   userSettings = (userSettings['BarChartContents'] || {});
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
   HtmlSpec.call(this, objSettings);
+
+  this.children.push(new BarChartAxis(data, options))
 }
 BarChartContents.prototype = new HtmlSpec();
 
