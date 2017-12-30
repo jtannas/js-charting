@@ -1,8 +1,8 @@
 var SETTINGS = {
   HtmlSpec: {},
   BarChart: {
-    attributes: {
-      css: {
+    'attributes': {
+      'css': {
         'background-color': 'white',
         'border': '1px solid black'
       }
@@ -15,6 +15,11 @@ var SETTINGS = {
         'display': 'flex',
         'justify-content': 'center'
       }
+    }
+  },
+  BarChartLabel: {
+    'attributes': {
+      'innerHTML': 'label'
     }
   },
   BarChartContents: {
