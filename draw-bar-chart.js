@@ -4,7 +4,6 @@ function BarChartBarUnits(options){
     'type': 'div',
     'attributes': {
       'class': 'units',
-      'innerHTML': 'units',
     }
   };
   var userSettings = getSettingsObject();
@@ -19,11 +18,10 @@ function BarChartBarDescription(options){
     'type': 'div',
     'attributes': {
       'class': 'description',
-      'innerHTML': 'desc'
     }
   };
   var userSettings = getSettingsObject();
-  userSettings = (userSettings['BarChartBar'] || {});
+  userSettings = (userSettings['BarChartBarDescription'] || {});
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
   HtmlSpec.call(this, objSettings);
 }
@@ -34,11 +32,6 @@ function BarChartBar(options){
     'type': 'li',
     'attributes': {
       'class': 'bar',
-      'title': 'title',
-      'css': {
-        'height': '50%',
-        'background': '-webkit-linear-gradient(#999999  , #ffffff)'
-      }
     }
   };
   var userSettings = getSettingsObject();
@@ -72,7 +65,10 @@ function BarChartAxis(data, options){
     'attributes': {
       'class': 'axis',
       'css': {
-        'background-color': 'red'
+        'height': '100%',
+        'display': 'flex',
+        'justify-content': 'space-between',
+        'flex-direction': 'column'
       }
     }
   };
@@ -82,12 +78,12 @@ function BarChartAxis(data, options){
   HtmlSpec.call(this, objSettings);
 
 
-  this.children.push(new BarChartAxisLabel('0%', options));
-  this.children.push(new BarChartAxisLabel('20%', options));
-  this.children.push(new BarChartAxisLabel('40%', options));
-  this.children.push(new BarChartAxisLabel('60%', options));
-  this.children.push(new BarChartAxisLabel('80%', options));
   this.children.push(new BarChartAxisLabel('100%', options));
+  this.children.push(new BarChartAxisLabel('80%', options));
+  this.children.push(new BarChartAxisLabel('60%', options));
+  this.children.push(new BarChartAxisLabel('40%', options));
+  this.children.push(new BarChartAxisLabel('20%', options));
+  this.children.push(new BarChartAxisLabel('0%', options));
 }
 BarChartAxis.prototype = new HtmlSpec();
 
@@ -98,7 +94,9 @@ function BarChartContents(data, options){
     'attributes': {
       'class': 'contents',
       'css': {
-        'background-color': '#012345'
+        'display': 'flex',
+        'align-items': 'flex-end',
+        'justify-content': 'space-between'
       }
     }
   };
@@ -109,6 +107,10 @@ function BarChartContents(data, options){
 
   this.children.push(new BarChartAxis(data, options));
   this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
 }
 BarChartContents.prototype = new HtmlSpec();
 
@@ -118,15 +120,10 @@ function BarChart(data, options){
     'type': 'div',
     'attributes': {
       'class': 'bar_chart',
-      'css': {
-        'height': '500px',
-        'width': '500px',
-        'background-color': '#eeeeee'
-      }
     }
   };
   var userSettings = getSettingsObject();
-  userSettings = (userSettings['barChart'] || {});
+  userSettings = (userSettings['BarChart'] || {});
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChart);
   HtmlSpec.call(this, objSettings);
 
