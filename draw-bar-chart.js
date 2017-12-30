@@ -1,20 +1,25 @@
 // requires jquery and create-dom-object-from-json.js
-// function barChartBarUnits(options){
-//   return {
-//     'type': 'div',
-//     'attributes': {
-//       'class': 'units',
-//       'innerHTML': amount + units
-//     }
-//   };
-// };
+function BarChartBarUnits(options){
+  var defaults = {
+    'type': 'div',
+    'attributes': {
+      'class': 'units',
+      'innerHTML': 'units',
+    }
+  };
+  var userSettings = getSettingsObject();
+  userSettings = (userSettings['BarChartBarUnits'] || {});
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  HtmlSpec.call(this, objSettings);
+}
+BarChartBarUnits.prototype = new HtmlSpec();
 
 function BarChartBarDescription(options){
   var defaults = {
     'type': 'div',
     'attributes': {
       'class': 'description',
-      'innerHTML': 'test'
+      'innerHTML': 'desc'
     }
   };
   var userSettings = getSettingsObject();
@@ -42,6 +47,7 @@ function BarChartBar(options){
   HtmlSpec.call(this, objSettings);
 
   this.children.push(new BarChartBarDescription(options));
+  this.children.push(new BarChartBarUnits(options));
 }
 BarChartBar.prototype = new HtmlSpec();
 
