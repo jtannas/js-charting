@@ -231,3 +231,9 @@ Resources:
     address: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
     notes:
       - Helped me figure out object oriented programming for javascript
+  - name: Flexbox Froggy
+    address: http://flexboxfroggy.com/
+    notes:
+      - I learned css flexboxes from this a few weeks ago
+      - I used it to refresh my knowledge for how to make the bar graph
+
