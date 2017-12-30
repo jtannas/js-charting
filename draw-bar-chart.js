@@ -35,13 +35,20 @@
 //   ]
 // };
 
-// var barChartAxisLabel = {
-//   'type': 'div',
-//   'attributes': {
-//     'class': 'axis-label',
-//     'innerHTML': 'XXX%'
-//   }
-// };
+function BarChartAxisLabel(value, options){
+  var defaults = {
+    'type': 'div',
+    'attributes': {
+      'class': 'axis-label',
+      'innerHTML': value
+    }
+  };
+  var userSettings = getSettingsObject();
+  userSettings = (userSettings['BarChartAxisLabel'] || {});
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  HtmlSpec.call(this, objSettings);
+}
+BarChartAxisLabel.prototype = new HtmlSpec();
 
 function BarChartAxis(data, options){
   var defaults = {
@@ -58,8 +65,15 @@ function BarChartAxis(data, options){
   userSettings = (userSettings['BarChartAxis'] || {});
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
   HtmlSpec.call(this, objSettings);
+
+  this.children.push(new BarChartAxisLabel('0%', options));
+  this.children.push(new BarChartAxisLabel('20%', options));
+  this.children.push(new BarChartAxisLabel('40%', options));
+  this.children.push(new BarChartAxisLabel('60%', options));
+  this.children.push(new BarChartAxisLabel('80%', options));
+  this.children.push(new BarChartAxisLabel('100%', options));
 }
-BarChartContents.prototype = new HtmlSpec();
+BarChartAxis.prototype = new HtmlSpec();
 
 
 function BarChartContents(data, options){
@@ -78,7 +92,7 @@ function BarChartContents(data, options){
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
   HtmlSpec.call(this, objSettings);
 
-  this.children.push(new BarChartAxis(data, options))
+  this.children.push(new BarChartAxis(data, options));
 }
 BarChartContents.prototype = new HtmlSpec();
 
