@@ -72,9 +72,9 @@ function BarChartContents(data, options){
   var userSettings = getSettingsObject();
   userSettings = (userSettings['BarChartContents'] || {});
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
-  DomObjectJson.call(this, objSettings);
+  HtmlSpec.call(this, objSettings);
 }
-BarChartContents.prototype = new DomObjectJson();
+BarChartContents.prototype = new HtmlSpec();
 
 
 function BarChart(data, options){
@@ -93,15 +93,15 @@ function BarChart(data, options){
   var userSettings = getSettingsObject();
   userSettings = (userSettings['barChart'] || {});
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChart);
-  DomObjectJson.call(this, objSettings);
+  HtmlSpec.call(this, objSettings);
 
   this.children.push(new BarChartContents(data, options));
 }
-BarChart.prototype = new DomObjectJson();
+BarChart.prototype = new HtmlSpec();
 
 
 var drawBarChart = function(data, options, element){
   var $chart = new BarChart(data, options);
-  element.append($chart.create());
+  element.append($chart.createElement());
   return $chart;
 };

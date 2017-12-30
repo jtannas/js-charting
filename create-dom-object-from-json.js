@@ -33,28 +33,28 @@ var getSettingsObject = function(){
   return ("SETTINGS" in window) ? SETTINGS : {};
 };
 
-function DomObjectJson(options){
+function HtmlSpec(options){
   var defaults = {
     type: 'div',
     attributes: {},
     children: []
   };
   var userSettings = getSettingsObject();
-  userSettings = (userSettings['DomObjectJson'] || {});
+  userSettings = (userSettings['HtmlSpec'] || {});
 
   var objSettings = $.extend(true, {}, defaults, userSettings, options);
   this.type = objSettings.type;
   this.attributes = objSettings.attributes;
   this.children = objSettings.children;
 }
-DomObjectJson.prototype = null;
+HtmlSpec.prototype = null;
 
-DomObjectJson.prototype = {
-  create: function(){
+HtmlSpec.prototype = {
+  createElement: function(){
     var $element = $(document.createElement(this.type));
     $element.setAttrs(this.attributes);
     (this.children).forEach(function(child){
-      var $childElement = new DomObjectJson(child).create();
+      var $childElement = new HtmlSpec(child).createElement();
       $element.append($childElement);
     });
     return $element;

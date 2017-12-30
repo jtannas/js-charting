@@ -1,3 +1,3 @@
 var SETTINGS = {
-  DomObjectJson: {}
+  HtmlSpec: {}
 };

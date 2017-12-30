@@ -24,8 +24,8 @@ $(document).ready(function(){
       }
     ]
   };
-  var testDOM = new DomObjectJson(testData);
-  $('body').append(testDOM.create());
+  var testDOM = new HtmlSpec(testData);
+  $('body').append(testDOM.createElement());
   drawBarChart([],{},$('body'));
 });
 
