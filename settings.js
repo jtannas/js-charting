@@ -3,17 +3,24 @@ var SETTINGS = {
   BarChart: {
     attributes: {
       css: {
-        'height': 500,
-        'width': 500,
         'background-color': 'white',
         'border': '1px solid black'
+      }
+    }
+  },
+  BarChartTitle: {
+    'attributes': {
+      'innerHTML': 'Chart Title',
+      'css': {
+        'display': 'flex',
+        'justify-content': 'center'
       }
     }
   },
   BarChartContents: {
     'attributes': {
       'css': {
-        'height': '100%'
+        'border-bottom': '1px solid black'
       }
     }
   },

@@ -115,11 +115,30 @@ function BarChartContents(data, options){
 BarChartContents.prototype = new HtmlSpec();
 
 
+function BarChartTitle(options){
+  var defaults = {
+    'type': 'title',
+    'attributes': {
+      'class': 'title',
+    }
+  };
+  var userSettings = getSettingsObject();
+  userSettings = (userSettings['BarChartTitle'] || {});
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  HtmlSpec.call(this, objSettings);
+}
+BarChartTitle.prototype = new HtmlSpec();
+
+
 function BarChart(data, options){
   var defaults = {
     'type': 'div',
     'attributes': {
       'class': 'bar_chart',
+      'css': {
+        'display': 'flex',
+        'flex-direction': 'column'
+      }
     }
   };
   var userSettings = getSettingsObject();
@@ -127,6 +146,7 @@ function BarChart(data, options){
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChart);
   HtmlSpec.call(this, objSettings);
 
+  this.children.push(new BarChartTitle(options));
   this.children.push(new BarChartContents(data, options));
 }
 BarChart.prototype = new HtmlSpec();
