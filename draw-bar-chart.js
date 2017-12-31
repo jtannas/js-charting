@@ -33,7 +33,7 @@ BarChartBarDescription.prototype = new HtmlSpec();
 
 function BarChartBar(options){
   var defaults = {
-    'type': 'li',
+    'type': 'div',
     'attributes': {
       'class': 'bar'
     }
@@ -49,60 +49,131 @@ function BarChartBar(options){
 BarChartBar.prototype = new HtmlSpec();
 
 
-function BarChartAxisLabel(value, options){
+function BarChartBarArea(options){
   var defaults = {
     'type': 'div',
     'attributes': {
-      'class': 'axis-label',
+      'class': 'bar',
+      'css': {
+        'grid-column': '2',
+        'grid-row': '1',
+        'display': 'flex',
+        'justify-content': 'space-around'
+      }
+    }
+  };
+  var userSettings = getSettingsObject();
+  userSettings = (userSettings['BarChartBarArea'] || {});
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  HtmlSpec.call(this, objSettings);
+
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+}
+BarChartBarArea.prototype = new HtmlSpec();
+
+
+function BarChartYAxisLabel(value, options){
+  var defaults = {
+    'type': 'div',
+    'attributes': {
+      'class': 'y-axis-label',
       'innerHTML': value
     }
   };
   var userSettings = getSettingsObject();
-  userSettings = (userSettings['BarChartAxisLabel'] || {});
+  userSettings = (userSettings['BarChartYAxisLabel'] || {});
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
   HtmlSpec.call(this, objSettings);
 }
-BarChartAxisLabel.prototype = new HtmlSpec();
+BarChartYAxisLabel.prototype = new HtmlSpec();
 
 
-function BarChartAxis(data, options){
+function BarChartYAxis(data, options){
   var defaults = {
-    'type': 'li',
+    'type': 'div',
     'attributes': {
-      'class': 'axis',
+      'class': 'y-axis',
       'css': {
         'height': '100%',
+        'grid-row': '1',
+        'grid-column': '1',
         'display': 'flex',
-        'justify-content': 'space-between',
         'flex-direction': 'column'
       }
     }
   };
   var userSettings = getSettingsObject();
-  userSettings = (userSettings['BarChartAxis'] || {});
+  userSettings = (userSettings['BarChartYAxis'] || {});
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
   HtmlSpec.call(this, objSettings);
 
-
-  this.children.push(new BarChartAxisLabel('100%', options));
-  this.children.push(new BarChartAxisLabel('80%', options));
-  this.children.push(new BarChartAxisLabel('60%', options));
-  this.children.push(new BarChartAxisLabel('40%', options));
-  this.children.push(new BarChartAxisLabel('20%', options));
-  this.children.push(new BarChartAxisLabel('0%', options));
+  this.children.push(new BarChartYAxisLabel('100%', options));
+  this.children.push(new BarChartYAxisLabel('80%', options));
+  this.children.push(new BarChartYAxisLabel('60%', options));
+  this.children.push(new BarChartYAxisLabel('40%', options));
+  this.children.push(new BarChartYAxisLabel('20%', options));
+  this.children.push(new BarChartYAxisLabel('0%', options));
 }
-BarChartAxis.prototype = new HtmlSpec();
+BarChartYAxis.prototype = new HtmlSpec();
+
+function BarChartXAxisLabel(value, options){
+  var defaults = {
+    'type': 'div',
+    'attributes': {
+      'class': 'x-axis-label',
+      'innerHTML': value
+    }
+  };
+  var userSettings = getSettingsObject();
+  userSettings = (userSettings['BarChartXAxisLabel'] || {});
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  HtmlSpec.call(this, objSettings);
+}
+BarChartXAxisLabel.prototype = new HtmlSpec();
+
+
+function BarChartXAxis(data, options){
+  var defaults = {
+    'type': 'div',
+    'attributes': {
+      'class': 'x-axis',
+      'css': {
+        'height': '100%',
+        'grid-row': '2',
+        'grid-column': '2',
+        'display': 'flex',
+        'flex-direction': 'row',
+        'justify-content': 'space-around'
+      }
+    }
+  };
+  var userSettings = getSettingsObject();
+  userSettings = (userSettings['BarChartXAxis'] || {});
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  HtmlSpec.call(this, objSettings);
+
+  this.children.push(new BarChartXAxisLabel('a', options));
+  this.children.push(new BarChartXAxisLabel('b', options));
+  this.children.push(new BarChartXAxisLabel('c', options));
+  this.children.push(new BarChartXAxisLabel('d', options));
+  this.children.push(new BarChartXAxisLabel('e', options));
+}
+BarChartXAxis.prototype = new HtmlSpec();
 
 
 function BarChartContents(data, options){
   var defaults = {
-    'type': 'ul',
+    'type': 'div',
     'attributes': {
       'class': 'contents',
       'css': {
-        'display': 'flex',
-        'align-items': 'flex-end',
-        'justify-content': 'space-between'
+        'display': 'grid',
+        'grid-template-columns': '10% 90%',
+        'grid-template-rows': '90% 10%'
       }
     }
   };
@@ -111,12 +182,9 @@ function BarChartContents(data, options){
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
   HtmlSpec.call(this, objSettings);
 
-  this.children.push(new BarChartAxis(data, options));
-  this.children.push(new BarChartBar(options));
-  this.children.push(new BarChartBar(options));
-  this.children.push(new BarChartBar(options));
-  this.children.push(new BarChartBar(options));
-  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartYAxis(data, options));
+  this.children.push(new BarChartBarArea(data, options));
+  this.children.push(new BarChartXAxis(data, options));
 }
 BarChartContents.prototype = new HtmlSpec();
 
@@ -138,7 +206,7 @@ BarChartTitle.prototype = new HtmlSpec();
 
 function BarChartLabel(options){
   var defaults = {
-    'type': 'li',
+    'type': 'div',
     'attributes': {
       'class': 'label'
     }
@@ -153,7 +221,7 @@ BarChartBar.prototype = new HtmlSpec();
 
 function BarChartLabelContainer(data, options){
   var defaults = {
-    'type': 'ul',
+    'type': 'div',
     'attributes': {
       'class': 'label-container',
       'css': {
@@ -196,7 +264,6 @@ function BarChart(data, options){
 
   this.children.push(new BarChartTitle(options));
   this.children.push(new BarChartContents(data, options));
-  this.children.push(new BarChartLabelContainer(data, options));
 }
 BarChart.prototype = new HtmlSpec();
 

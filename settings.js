@@ -29,14 +29,21 @@ var SETTINGS = {
       }
     }
   },
-  BarChartAxis: {
+  BarChartYAxis: {
     'attributes': {
       'css': {
         'border-right': '1px solid black'
       }
     }
   },
-  BarChartAxisLabel: {},
+  BarChartXAxis: {
+    'attributes': {
+      'css': {
+        'border-top': '1px solid black'
+      }
+    }
+  },
+  BarChartYAxisLabel: {},
   BarChartBar: {
     'attributes': {
       'title': 'title',
