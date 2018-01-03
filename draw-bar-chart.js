@@ -1,5 +1,21 @@
 // requires jquery and create-dom-object-from-json.js
+function DataPoint(options){
+  this.value = (options.value || null);
+  this.name = (options.name || '');
+  this.color = (options.color || 'white');
+}
+DataPoint.prototype = null;
 
+function DataSeries(dataArray){
+  this.data = [];
+  dataArray.forEach(function(dataPoint){
+    if (dataPoint.constructor === Array) {
+      this.data.push(new DataSeries(dataPoint));
+    } else {
+      this.data.push(new DataPoint(dataPoint));
+    }
+  });
+}
 
 function BarChartBarUnits(options){
   var defaults = {
@@ -27,7 +43,7 @@ function BarChartBarDescription(options){
       'class': 'description',
       'css': {
         'text-align': 'center',
-        'width': '100%',
+        'width': '100%'
       }
     }
   };
@@ -47,7 +63,7 @@ function BarChartInnerBar(options){
       'css': {
         'box-sizing': 'border-box',
         'flex-grow': '1',
-        'flex-basis': '0',
+        'flex-basis': '0'
       }
     }
   };
@@ -369,7 +385,8 @@ BarChart.prototype = new HtmlSpec();
 
 
 var drawBarChart = function(data, options, element){
-  var $chart = new BarChart(data, options);
+  var dataSeries = new DataSeries(data);
+  var $chart = new BarChart(dataSeries, options);
   element.append($chart.createElement());
   return $chart;
 };
