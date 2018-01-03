@@ -5,7 +5,10 @@ function BarChartBarUnits(options){
   var defaults = {
     'type': 'div',
     'attributes': {
-      'class': 'units'
+      'class': 'units',
+      'css': {
+        'text-align': 'center'
+      }
     }
   };
   var userSettings = getSettingsObject();
@@ -20,7 +23,10 @@ function BarChartBarDescription(options){
   var defaults = {
     'type': 'div',
     'attributes': {
-      'class': 'description'
+      'class': 'description',
+      'css': {
+        'text-align': 'center'
+      }
     }
   };
   var userSettings = getSettingsObject();
@@ -35,7 +41,10 @@ function BarChartBar(options){
   var defaults = {
     'type': 'div',
     'attributes': {
-      'class': 'bar'
+      'class': 'bar',
+      'css': {
+        'flex': '1'
+      }
     }
   };
   var userSettings = getSettingsObject();
@@ -49,16 +58,88 @@ function BarChartBar(options){
 BarChartBar.prototype = new HtmlSpec();
 
 
+function BarChartSingleBar(options){
+  var defaults = {
+    'type': 'div',
+    'attributes': {
+      'class': 'single-bar',
+      'css': {
+        'flex': '1'
+      }
+    }
+  };
+  var userSettings = getSettingsObject();
+  userSettings = (userSettings['BarChartSingleBar'] || {});
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartSingleBar);
+  HtmlSpec.call(this, objSettings);
+
+  this.children.push(new BarChartBar(options));
+}
+BarChartSingleBar.prototype = new HtmlSpec();
+
+
+function BarChartStackedBar(options){
+  var defaults = {
+    'type': 'div',
+    'attributes': {
+      'class': 'stacked-bar',
+      'css': {
+        'display': 'flexbox',
+        'flex': '1',
+        'flex-direction': 'column'
+      }
+    }
+  };
+  var userSettings = getSettingsObject();
+  userSettings = (userSettings['BarChartStackedBar'] || {});
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartStackedBar);
+  HtmlSpec.call(this, objSettings);
+
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+}
+BarChartStackedBar.prototype = new HtmlSpec();
+
+function BarChartClusterBar(options){
+  var defaults = {
+    'type': 'div',
+    'attributes': {
+      'class': 'cluster-bar',
+      'css': {
+        'display': 'flex',
+        'flex': '1',
+        'flex-direction': 'row',
+        'flex-wrap': 'nowrap'
+      }
+    }
+  };
+  var userSettings = getSettingsObject();
+  userSettings = (userSettings['BarChartClusterBar'] || {});
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartClusterBar);
+  HtmlSpec.call(this, objSettings);
+
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartBar(options));
+}
+BarChartClusterBar.prototype = new HtmlSpec();
+
 function BarChartBarArea(options){
   var defaults = {
     'type': 'div',
     'attributes': {
-      'class': 'bar',
+      'class': 'bar-area',
       'css': {
         'grid-column': '2',
         'grid-row': '1',
         'display': 'flex',
-        'justify-content': 'space-around'
+        'justify-content': 'space-around',
+        'align-items': 'flex-end'
       }
     }
   };
@@ -67,11 +148,11 @@ function BarChartBarArea(options){
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartBarArea);
   HtmlSpec.call(this, objSettings);
 
-  this.children.push(new BarChartBar(options));
-  this.children.push(new BarChartBar(options));
-  this.children.push(new BarChartBar(options));
-  this.children.push(new BarChartBar(options));
-  this.children.push(new BarChartBar(options));
+  this.children.push(new BarChartStackedBar(options));
+  this.children.push(new BarChartSingleBar(options));
+  this.children.push(new BarChartClusterBar(options));
+  this.children.push(new BarChartSingleBar(options));
+  this.children.push(new BarChartSingleBar(options));
 }
 BarChartBarArea.prototype = new HtmlSpec();
 
@@ -103,7 +184,8 @@ function BarChartYAxis(data, options){
         'grid-column': '1',
         'display': 'flex',
         'flex-direction': 'column',
-        'justify-content': 'space-between'
+        'justify-content': 'space-between',
+        'text-align': 'right'
       }
     }
   };
@@ -126,6 +208,9 @@ function BarChartXAxisLabel(value, options){
     'type': 'div',
     'attributes': {
       'class': 'x-axis-label',
+      'css': {
+        'flex': '1'
+      },
       'innerHTML': value
     }
   };
@@ -148,7 +233,8 @@ function BarChartXAxis(data, options){
         'grid-column': '2',
         'display': 'flex',
         'flex-direction': 'row',
-        'justify-content': 'space-around'
+        'justify-content': 'space-around',
+        'text-align': 'center'
       }
     }
   };
