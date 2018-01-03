@@ -43,12 +43,30 @@ var SETTINGS = {
       }
     }
   },
-  BarChartYAxisLabel: {},
-  BarChartBar: {
+  BarChartYAxisLabel: {
+  },
+  BarChartInnerBar: {
     'attributes': {
-      'title': 'title',
       'css': {
-        'border': '1px solid black'
+        'border': '1px solid black',
+      }
+    }
+  },
+  BarChartSingleBar: {
+    'attributes': {
+      'css': {
+      }
+    }
+  },
+  BarChartClusterBar: {
+    'attributes': {
+      'css': {
+      }
+    }
+  },
+  BarChartStackedBar: {
+    'attributes': {
+      'css': {
       }
     }
   },
