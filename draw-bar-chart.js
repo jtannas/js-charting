@@ -102,7 +102,8 @@ function BarChartYAxis(data, options){
         'grid-row': '1',
         'grid-column': '1',
         'display': 'flex',
-        'flex-direction': 'column'
+        'flex-direction': 'column',
+        'justify-content': 'space-between'
       }
     }
   };
