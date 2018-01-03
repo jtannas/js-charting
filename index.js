@@ -26,6 +26,15 @@ $(document).ready(function(){
   // };
   // var testDOM = new HtmlSpec(testData);
   // $('body').append(testDOM.createElement());
-  drawBarChart([],{},$('body'));
+  var options = {
+    BarChartContents: {
+      'attributes': {
+        'css': {
+          'height': '500px'
+        }
+      }
+    }
+  }
+  drawBarChart([], options, $('body'));
 });
 

@@ -10,7 +10,7 @@ function BarChartBarUnits(options){
   };
   var userSettings = getSettingsObject();
   userSettings = (userSettings['BarChartBarUnits'] || {});
-  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartBarUnits);
   HtmlSpec.call(this, objSettings);
 }
 BarChartBarUnits.prototype = new HtmlSpec();
@@ -25,7 +25,7 @@ function BarChartBarDescription(options){
   };
   var userSettings = getSettingsObject();
   userSettings = (userSettings['BarChartBarDescription'] || {});
-  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartBarDescription);
   HtmlSpec.call(this, objSettings);
 }
 BarChartBarDescription.prototype = new HtmlSpec();
@@ -40,7 +40,7 @@ function BarChartBar(options){
   };
   var userSettings = getSettingsObject();
   userSettings = (userSettings['BarChartBar'] || {});
-  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartBar);
   HtmlSpec.call(this, objSettings);
 
   this.children.push(new BarChartBarDescription(options));
@@ -64,7 +64,7 @@ function BarChartBarArea(options){
   };
   var userSettings = getSettingsObject();
   userSettings = (userSettings['BarChartBarArea'] || {});
-  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartBarArea);
   HtmlSpec.call(this, objSettings);
 
   this.children.push(new BarChartBar(options));
@@ -86,7 +86,7 @@ function BarChartYAxisLabel(value, options){
   };
   var userSettings = getSettingsObject();
   userSettings = (userSettings['BarChartYAxisLabel'] || {});
-  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartYAxisLabel);
   HtmlSpec.call(this, objSettings);
 }
 BarChartYAxisLabel.prototype = new HtmlSpec();
@@ -108,7 +108,7 @@ function BarChartYAxis(data, options){
   };
   var userSettings = getSettingsObject();
   userSettings = (userSettings['BarChartYAxis'] || {});
-  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartYAxis);
   HtmlSpec.call(this, objSettings);
 
   this.children.push(new BarChartYAxisLabel('100%', options));
@@ -130,7 +130,7 @@ function BarChartXAxisLabel(value, options){
   };
   var userSettings = getSettingsObject();
   userSettings = (userSettings['BarChartXAxisLabel'] || {});
-  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartXAxisLabel);
   HtmlSpec.call(this, objSettings);
 }
 BarChartXAxisLabel.prototype = new HtmlSpec();
@@ -153,7 +153,7 @@ function BarChartXAxis(data, options){
   };
   var userSettings = getSettingsObject();
   userSettings = (userSettings['BarChartXAxis'] || {});
-  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartXAxis);
   HtmlSpec.call(this, objSettings);
 
   this.children.push(new BarChartXAxisLabel('a', options));
@@ -198,7 +198,7 @@ function BarChartTitle(options){
   };
   var userSettings = getSettingsObject();
   userSettings = (userSettings['BarChartTitle'] || {});
-  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartTitle);
   HtmlSpec.call(this, objSettings);
 }
 BarChartTitle.prototype = new HtmlSpec();
@@ -213,7 +213,7 @@ function BarChartLabel(options){
   };
   var userSettings = getSettingsObject();
   userSettings = (userSettings['BarChartLabel'] || {});
-  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartLabel);
   HtmlSpec.call(this, objSettings);
 }
 BarChartBar.prototype = new HtmlSpec();
@@ -233,7 +233,7 @@ function BarChartLabelContainer(data, options){
   };
   var userSettings = getSettingsObject();
   userSettings = (userSettings['BarChartLabelContainer'] || {});
-  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartContents);
+  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartLabelContainer);
   HtmlSpec.call(this, objSettings);
 
   this.children.push(new BarChartLabel(options));
