@@ -35,6 +35,6 @@ $(document).ready(function(){
       }
     }
   };
-  drawBarChart([], options, $('body'));
+  drawBarChart([11,22,33,44,55], options, $('body'));
 });
 

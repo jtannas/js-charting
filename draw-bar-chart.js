@@ -1,21 +1,25 @@
 // requires jquery and create-dom-object-from-json.js
-function DataPoint(options){
-  this.value = (options.value || null);
-  this.name = (options.name || '');
-  this.color = (options.color || 'white');
+function DataPoint(value, name, color){
+  this.value = (value || null);
+  this.name = (name || '');
+  this.color = (color || 'white');
 }
 DataPoint.prototype = null;
 
+
 function DataSeries(dataArray){
-  this.data = [];
+  var data = [];
   dataArray.forEach(function(dataPoint){
     if (dataPoint.constructor === Array) {
-      this.data.push(new DataSeries(dataPoint));
+      data.push(new DataSeries(dataPoint));
     } else {
-      this.data.push(new DataPoint(dataPoint));
+      data.push(new DataPoint(dataPoint));
     }
   });
+  this.data = data;
 }
+DataSeries.prototype = null;
+
 
 function BarChartBarUnits(options){
   var defaults = {
@@ -386,6 +390,7 @@ BarChart.prototype = new HtmlSpec();
 
 var drawBarChart = function(data, options, element){
   var dataSeries = new DataSeries(data);
+  console.log(dataSeries);
   var $chart = new BarChart(dataSeries, options);
   element.append($chart.createElement());
   return $chart;
