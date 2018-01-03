@@ -4,21 +4,24 @@ function DataPoint(value, name, color){
   this.name = (name || '');
   this.color = (color || 'white');
 }
-DataPoint.prototype = null;
 
 
-function DataSeries(dataArray){
+var makeDataSeries = function(dataArray){
   var data = [];
-  dataArray.forEach(function(dataPoint){
-    if (dataPoint.constructor === Array) {
-      data.push(new DataSeries(dataPoint));
+  for (var i = 0; i < dataArray.length; i++){
+    if (dataArray[i].constructor === Array) {
+      data.push(new DataSeries(dataArray[i]));
     } else {
-      data.push(new DataPoint(dataPoint));
+      var dp = new DataPoint(
+        dataArray[i].value || dataArray[i],
+        dataArray[i].name || i.toString(),
+        dataArray[i].color
+      );
+      data.push(dp);
     }
-  });
-  this.data = data;
-}
-DataSeries.prototype = null;
+  }
+  return data;
+};
 
 
 function BarChartBarUnits(options){
@@ -184,12 +187,12 @@ function BarChartBarArea(options){
 BarChartBarArea.prototype = new HtmlSpec();
 
 
-function BarChartYAxisLabel(value, options){
+function BarChartYAxisLabel(text, options){
   var defaults = {
     'type': 'div',
     'attributes': {
       'class': 'y-axis-label',
-      'innerHTML': value
+      'innerHTML': text
     }
   };
   var userSettings = getSettingsObject();
@@ -231,7 +234,7 @@ function BarChartYAxis(data, options){
 }
 BarChartYAxis.prototype = new HtmlSpec();
 
-function BarChartXAxisLabel(value, options){
+function BarChartXAxisLabel(name, options){
   var defaults = {
     'type': 'div',
     'attributes': {
@@ -240,7 +243,7 @@ function BarChartXAxisLabel(value, options){
         'box-sizing': 'border-box',
         'flex': '1'
       },
-      'innerHTML': value
+      'innerHTML': name
     }
   };
   var userSettings = getSettingsObject();
@@ -273,11 +276,11 @@ function BarChartXAxis(data, options){
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartXAxis);
   HtmlSpec.call(this, objSettings);
 
-  this.children.push(new BarChartXAxisLabel('a', options));
-  this.children.push(new BarChartXAxisLabel('b', options));
-  this.children.push(new BarChartXAxisLabel('c', options));
-  this.children.push(new BarChartXAxisLabel('d', options));
-  this.children.push(new BarChartXAxisLabel('e', options));
+  var me = this;
+  data.forEach(function(dataPoint){
+    console.log(dataPoint.name);
+    me.children.push(new BarChartXAxisLabel(dataPoint.name, options));
+  });
 }
 BarChartXAxis.prototype = new HtmlSpec();
 
@@ -322,48 +325,6 @@ function BarChartTitle(options){
 BarChartTitle.prototype = new HtmlSpec();
 
 
-function BarChartLabel(options){
-  var defaults = {
-    'type': 'div',
-    'attributes': {
-      'class': 'label'
-    }
-  };
-  var userSettings = getSettingsObject();
-  userSettings = (userSettings['BarChartLabel'] || {});
-  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartLabel);
-  HtmlSpec.call(this, objSettings);
-}
-BarChartLabel.prototype = new HtmlSpec();
-
-
-function BarChartLabelContainer(data, options){
-  var defaults = {
-    'type': 'div',
-    'attributes': {
-      'class': 'label-container',
-      'css': {
-        'box-sizing': 'border-box',
-        'display': 'flex',
-        'align-items': 'flex-end',
-        'justify-content': 'space-between'
-      }
-    }
-  };
-  var userSettings = getSettingsObject();
-  userSettings = (userSettings['BarChartLabelContainer'] || {});
-  var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartLabelContainer);
-  HtmlSpec.call(this, objSettings);
-
-  this.children.push(new BarChartLabel(options));
-  this.children.push(new BarChartLabel(options));
-  this.children.push(new BarChartLabel(options));
-  this.children.push(new BarChartLabel(options));
-  this.children.push(new BarChartLabel(options));
-  this.children.push(new BarChartLabel(options));
-}
-BarChartTitle.prototype = new HtmlSpec();
-
 
 function BarChart(data, options){
   var defaults = {
@@ -382,15 +343,14 @@ function BarChart(data, options){
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChart);
   HtmlSpec.call(this, objSettings);
 
-  this.children.push(new BarChartTitle(options));
+  if (options.title) { this.children.push(new BarChartTitle(options)); }
   this.children.push(new BarChartContents(data, options));
 }
 BarChart.prototype = new HtmlSpec();
 
 
 var drawBarChart = function(data, options, element){
-  var dataSeries = new DataSeries(data);
-  console.log(dataSeries);
+  var dataSeries = makeDataSeries(data);
   var $chart = new BarChart(dataSeries, options);
   element.append($chart.createElement());
   return $chart;
