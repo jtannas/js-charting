@@ -25,7 +25,6 @@ var SETTINGS = {
   BarChartContents: {
     'attributes': {
       'css': {
-        'border-bottom': '1px solid black'
       }
     }
   },
