@@ -74,7 +74,7 @@ function BarChartBarDescription(options){
 BarChartBarDescription.prototype = new HtmlSpec();
 
 
-function BarChartInnerBar(options){
+function BarChartInnerBar(percentHeight, color, options){
   var defaults = {
     'type': 'div',
     'attributes': {
@@ -82,7 +82,9 @@ function BarChartInnerBar(options){
       'css': {
         'box-sizing': 'border-box',
         'flex-grow': '1',
-        'flex-basis': '0'
+        'flex-basis': '0',
+        'height': percentHeight.toString() + '%',
+        'background-color': color
       }
     }
   };
@@ -97,14 +99,15 @@ function BarChartInnerBar(options){
 BarChartInnerBar.prototype = new HtmlSpec();
 
 
-function BarChartSingleBar(options){
+function BarChartSingleBar(percentHeight, dataPoint, options){
   var defaults = {
     'type': 'div',
     'attributes': {
       'class': 'single-bar',
       'css': {
         'flex-grow': '1',
-        'flex-basis': '0'
+        'flex-basis': '0',
+        'height': percentHeight.toString() + '%'
       }
     }
   };
@@ -113,7 +116,7 @@ function BarChartSingleBar(options){
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartSingleBar);
   HtmlSpec.call(this, objSettings);
 
-  this.children.push(new BarChartInnerBar(options));
+  this.children.push(new BarChartInnerBar(100, dataPoint.color, options));
 }
 BarChartSingleBar.prototype = new HtmlSpec();
 
@@ -171,7 +174,7 @@ function BarChartClusterBar(options){
 }
 BarChartClusterBar.prototype = new HtmlSpec();
 
-function BarChartBarArea(options){
+function BarChartBarArea(data, options){
   var defaults = {
     'type': 'div',
     'attributes': {
@@ -190,11 +193,12 @@ function BarChartBarArea(options){
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartBarArea);
   HtmlSpec.call(this, objSettings);
 
-  this.children.push(new BarChartStackedBar(options));
-  this.children.push(new BarChartSingleBar(options));
-  this.children.push(new BarChartClusterBar(options));
-  this.children.push(new BarChartSingleBar(options));
-  this.children.push(new BarChartSingleBar(options));
+  var me = this;
+  var max = getMaxDataValue(data);
+  data.forEach(function(dataPoint){
+    var percentHeight = dataPoint.value / max * 100
+    me.children.push(new BarChartSingleBar(percentHeight, dataPoint, options));
+  });
 }
 BarChartBarArea.prototype = new HtmlSpec();
 
@@ -303,10 +307,9 @@ function BarChartContents(data, options){
     'attributes': {
       'class': 'contents',
       'css': {
-        'box-sizing': 'border-box',
         'display': 'grid',
-        'grid-template-columns': '10% 90%',
-        'grid-template-rows': '90% 10%'
+        'grid-template-columns': 'max-content auto',
+        'grid-template-rows': 'auto max-content'
       }
     }
   };
