@@ -10,7 +10,7 @@ var makeDataSeries = function(dataArray){
   var data = [];
   for (var i = 0; i < dataArray.length; i++){
     if (dataArray[i].constructor === Array) {
-      data.push(new DataSeries(dataArray[i]));
+      data.push(makeDataSeries(dataArray[i]));
     } else {
       var dp = new DataPoint(
         dataArray[i].value || dataArray[i],
@@ -21,6 +21,18 @@ var makeDataSeries = function(dataArray){
     }
   }
   return data;
+};
+
+var getMaxDataValue = function(dataSeries){
+  var maxValue = -Infinity;
+  for (var i = 0; i < dataSeries.length; i++){
+    if (dataSeries[i].constructor === Array) {
+      maxValue = Math.max(maxValue, getMax(dataSeries[i]));
+    } else {
+      maxValue = Math.max(maxValue, dataSeries[i].value);
+    }
+  }
+  return maxValue;
 };
 
 
@@ -225,12 +237,13 @@ function BarChartYAxis(data, options){
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChartYAxis);
   HtmlSpec.call(this, objSettings);
 
-  this.children.push(new BarChartYAxisLabel('100%', options));
-  this.children.push(new BarChartYAxisLabel('80%', options));
-  this.children.push(new BarChartYAxisLabel('60%', options));
-  this.children.push(new BarChartYAxisLabel('40%', options));
-  this.children.push(new BarChartYAxisLabel('20%', options));
-  this.children.push(new BarChartYAxisLabel('0%', options));
+  var max = getMaxDataValue(data);
+  var divisions = 5;
+  var min = 0;
+  var step = (max - min) / divisions;
+  for (var labelVal = max; labelVal >= min; labelVal -= step){
+    this.children.push(new BarChartYAxisLabel(labelVal.toString(), options));
+  }
 }
 BarChartYAxis.prototype = new HtmlSpec();
 
@@ -278,7 +291,6 @@ function BarChartXAxis(data, options){
 
   var me = this;
   data.forEach(function(dataPoint){
-    console.log(dataPoint.name);
     me.children.push(new BarChartXAxisLabel(dataPoint.name, options));
   });
 }
