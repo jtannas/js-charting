@@ -358,7 +358,7 @@ function BarChart(data, options){
   var objSettings = $.extend(true, {}, defaults, userSettings, options.BarChart);
   HtmlSpec.call(this, objSettings);
 
-  if (options.title) { this.children.push(new BarChartTitle(options)); }
+  this.children.push(new BarChartTitle(options));
   this.children.push(new BarChartContents(data, options));
 }
 BarChart.prototype = new HtmlSpec();

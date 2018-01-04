@@ -2,6 +2,11 @@
 
 $(document).ready(function(){
   var options = {
+    BarChartTitle: {
+      'attributes': {
+        'innerHTML': 'Example Chart'
+      }
+    },
     BarChartContents: {
       'attributes': {
         'css': {
