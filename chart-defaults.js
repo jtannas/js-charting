@@ -14,6 +14,9 @@ var CHART_DEFAULTS = {
     },
     setHeight: function(height){
       this._attributes.css.height = height;
+    },
+    setWidth: function(width){
+      this._attributes.css.width = width;
     }
   },
 
@@ -80,6 +83,9 @@ var CHART_DEFAULTS = {
     },
     setColor: function(color){
       this._attributes.css['background-color'] = color;
+    },
+    setPercentWidth: function(percentWidth){
+      this._attributes.css.width = percentWidth.toString() + '%';
     }
   },
 
@@ -129,6 +135,9 @@ var CHART_DEFAULTS = {
     },
     setText: function(text){
       this._attributes.innerHTML = text;
+    },
+    setPercentWidth: function(percentWidth){
+      this._attributes.css.width = percentWidth.toString() + '%';
     }
   },
 
