@@ -9,6 +9,7 @@ var ownKeyIntersection = function(object1, object2){
   return sharedKeys;
 };
 
+
 $.fn.extend({
   setAttrs: function(attributesObject){
     return this.each(function() {
@@ -29,34 +30,33 @@ $.fn.extend({
   }
 });
 
-var getSettingsObject = function(){
-  return ("SETTINGS" in window) ? SETTINGS : {};
-};
 
 function HtmlSpec(options){
-  var defaults = {
-    type: 'div',
-    attributes: {},
-    children: []
-  };
-  var userSettings = getSettingsObject();
-  userSettings = (userSettings['HtmlSpec'] || {});
-
-  var objSettings = $.extend(true, {}, defaults, userSettings, options);
-  this.type = objSettings.type;
-  this.attributes = objSettings.attributes;
-  this.children = objSettings.children;
+  this._type = options._type || 'div';
+  this._attributes = options._attributes || {};
+  this._children = options._children || [];
 }
-HtmlSpec.prototype = null;
-
 HtmlSpec.prototype = {
+  addChild: function(child){
+    this._children.push(child);
+  },
   createElement: function(){
-    var $element = $(document.createElement(this.type));
-    $element.setAttrs(this.attributes);
-    (this.children).forEach(function(child){
+    var $element = $(document.createElement(this._type));
+    $element.setAttrs(this._attributes);
+    (this._children).forEach(function(child){
       var $childElement = new HtmlSpec(child).createElement();
       $element.append($childElement);
     });
     return $element;
+  },
+  extendCss: function(css){
+    this._attributes.css = $.extend(true, this._attributes.css, css);
   }
+};
+HtmlSpec.createUsingExtendedOptions = function(specName, optionsArray){
+  var newSpec = new HtmlSpec({});
+  optionsArray.forEach(function(optionsObject){
+    $.extend(true, newSpec, optionsObject);
+  });
+  return newSpec;
 };
