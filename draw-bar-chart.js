@@ -1,4 +1,3 @@
-// requires jquery and create-dom-object-from-json.js
 function DataPoint(value, name, color){
   this.value = (value || null);
   this.name = (name || '');

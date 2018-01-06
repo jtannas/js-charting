@@ -1,8 +1,11 @@
-var CHART_DEFAULTS = {
-  // Each property of this object is meant as an object definition for an object factory
-  // These are intended to extend the HtmlSpec defined in html-builder.js
-  // They provide the bare minimum to make the chart behave as intended.
-  // They can be extended or overridden via CHART_SETTINGS or provided options
+/** Each property of this object is meant as an object definition for an object factory.
+ * These are intended to extend the HtmlSpec defined in html-builder.js
+ * They can be extended or overridden via CHART_SETTINGS or provided options.
+ * These definitions are independent of each other - think of them as building blocks.
+ * The definitions provide the bare minimum to make the chart _behave_ as intended.
+ * @readonly
+ */
+var CHART_DEFINITIONS = {
 
   BarChart: {
     '_type': 'div',

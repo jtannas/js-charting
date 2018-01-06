@@ -1,8 +1,14 @@
+/** Creates a chart object with a given name, modifying it with the provides options.
+ * @param {string} typeName - The name of the chart object in the CHART_DEFINITIONS
+    & CHART_SETTINGS & options
+ * @param {object} options - options[typeName] is 'folded into' the definition
+    of the returned object.
+ */
 function createChartObject(typeName, options){
-  var defaults = ('CHART_DEFAULTS' in window) ? CHART_DEFAULTS[typeName] || {} : {};
+  var definitions = ('CHART_DEFINITIONS' in window) ? CHART_DEFINITIONS[typeName] || {} : {};
   var settings = ('CHART_SETTINGS' in window) ? CHART_SETTINGS[typeName] || {} : {};
   var objOptions = options[typeName] || {};
-  return HtmlSpec.createUsingExtendedOptions(typeName, [defaults, settings, objOptions]);
+  return HtmlSpec.createUsingExtendedOptions(typeName, [definitions, settings, objOptions]);
 }
 
 

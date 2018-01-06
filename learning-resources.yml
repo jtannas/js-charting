@@ -236,4 +236,11 @@ Resources:
     notes:
       - I learned css flexboxes from this a few weeks ago
       - I used it to refresh my knowledge for how to make the bar graph
+  - name: Css Grid Garden
+    address: http://cssgridgarden.com/
+  - name: JSDoc Website
+    address: http://usejsdoc.org/
+  - name: W3 Schools Css
+    address: https://www.w3schools.com/css/default.asp
+
 
