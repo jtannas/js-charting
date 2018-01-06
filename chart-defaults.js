@@ -74,15 +74,19 @@ var CHART_DEFAULTS = {
     '_attributes': {
       'class': 'single-bar',
       'css': {
+        'position': 'relative',
         'flex-basis': '0',
         'flex-grow': '1'
       }
     },
-    setPercentHeight: function(percentHeight){
-      this._attributes.css.height = percentHeight.toString() + '%';
-    },
     setColor: function(color){
       this._attributes.css['background-color'] = color;
+    },
+    setPercentBottom: function(percentBottom){
+      this._attributes.css.bottom = percentBottom.toString() + '%';
+    },
+    setPercentHeight: function(percentHeight){
+      this._attributes.css.height = percentHeight.toString() + '%';
     },
     setPercentWidth: function(percentWidth){
       this._attributes.css.width = percentWidth.toString() + '%';
@@ -120,7 +124,7 @@ var CHART_DEFAULTS = {
         'display': 'flex',
         'flex-direction': 'row',
         'height': '100%',
-        'justify-content': 'space-around',
+        'justify-content': 'space-around'
       }
     }
   },
@@ -148,7 +152,7 @@ var CHART_DEFAULTS = {
         'display': 'flex',
         'flex-direction': 'column',
         'height': '100%',
-        'justify-content': 'space-between',
+        'justify-content': 'space-between'
       }
     }
   },

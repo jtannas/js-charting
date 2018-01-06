@@ -37,6 +37,19 @@ var getMaxDataValue = function(dataSeries){
 };
 
 
+var getMinDataValue = function(dataSeries){
+  var minValue = Infinity;
+  for (var i = 0; i < dataSeries.length; i++){
+    if (dataSeries[i].constructor === Array) {
+      minValue = Math.min(minValue, getMax(dataSeries[i]));
+    } else {
+      minValue = Math.min(minValue, dataSeries[i].value);
+    }
+  }
+  return minValue;
+};
+
+
 var range = function(start, stop, step){
   var result = [];
   for (var num = start; num <= stop; num += step){
@@ -86,26 +99,51 @@ var drawBarChart = function(data, options, element){
   var dataSeries = makeDataSeries(data);
 
   var yAxisOptions = options.yAxis || {
-    yMax: getMaxDataValue(dataSeries),
-    yMin: 0,
+    yMax: Math.max(getMaxDataValue(dataSeries), 0),
+    yMin: Math.min(getMinDataValue(dataSeries), 0),
     yDivisions: 5
   };
   var yAxisNumbers = getYAxisNumbers(yAxisOptions);
   var yMax = yAxisNumbers[0];
   var yMin = yAxisNumbers[yAxisNumbers.length - 1];
+
+  if (yMin > getMinDataValue(dataSeries) || yMax < getMaxDataValue(dataSeries)){
+    throw 'Chart Error: Data out of provided graph bounds';
+  }
+
   yAxisNumbers.forEach(function(labelVal){
-    chart.yAxis.addLabel(labelVal.toString() + (options.units || ''));
+    chart.yAxis.addLabel(labelVal.toLocaleString() + (options.units || ''));
   });
+  yZeroPercentHeight = ( 0 - yMin ) / ( yMax - yMin ) * 100;
 
   dataSeries.forEach(function(dataPoint){
     var percentWidth = 100 / dataSeries.length;
-    var barPercentHeight = (dataPoint.value - yMin) / (yMax - yMin) * 100;
+    var barPercentHeight = 0;
+    var barBottom = 0;
+
+    if (yMin < 0 && yMax > 0) {
+      barPercentHeight = Math.abs(dataPoint.value / (yMax - yMin) * 100);
+      if (dataPoint.value >= 0){
+        barBottom = yZeroPercentHeight;
+      } else {
+        barBottom = yZeroPercentHeight - barPercentHeight;
+      }
+    } else if (yMax <= 0) {
+      barPercentHeight = Math.abs(dataPoint.value - yMax) / (yMax - yMin) * 100;
+      barBottom = 100 - barPercentHeight;
+    } else {
+      barPercentHeight = (dataPoint.value - yMin) / (yMax - yMin) * 100;
+      barBottom = 0;
+    }
 
     var xLabel = chart.xAxis.addLabel(dataPoint.name || dataPoint.value.toString());
     xLabel.setPercentWidth(percentWidth);
 
     var barText = dataPoint.value.toString() + (options.units || '');
-    var bar = chart.barArea.addBar(barPercentHeight, dataPoint.color, barText);
+    var bar = chart.barArea.addBar(barText);
+    bar.setColor(dataPoint.color);
+    bar.setPercentHeight(barPercentHeight);
+    bar.setPercentBottom(barBottom);
     bar.setPercentWidth(100 / dataSeries.length);
   });
 

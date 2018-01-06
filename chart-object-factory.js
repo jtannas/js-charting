@@ -37,10 +37,8 @@ var createBaseChart = function(options){
 
   var barArea = createChartObject('BarChartBarArea', options);
   barArea.extendCss(graphContents.barAreaCss);
-  barArea.addBar = function(percentHeight, color, valueLabel){
+  barArea.addBar = function(valueLabel){
     var bar = createChartObject('BarChartSingleBar', options);
-    bar.setPercentHeight(percentHeight);
-    bar.setColor(color);
     var barValueLabel = createChartObject('BarChartBarValueLabel', options);
     barValueLabel.setText(valueLabel);
     bar.addChild(barValueLabel);
