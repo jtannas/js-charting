@@ -51,6 +51,7 @@ var getMinDataValue = function(dataSeries){
 
 
 var range = function(start, stop, step){
+  // Inspired by the range function in Python
   var result = [];
   for (var num = start; num <= stop; num += step){
     result.push(num);
@@ -73,9 +74,7 @@ var getYAxisNumbers = function(options){
   if (isMinGiven && isMaxGiven && isStepGiven && isDivisionsGiven){
     throw 'Y-Axis is over-defined';
   } else if (isMinGiven && isMaxGiven && isStepGiven){
-    if ((yMax - yMin) % yStep !== 0) {
-      yMax += yStep;
-    }
+    yMax += (yMax - yMin) % yStep;
   } else if (isMinGiven && isMaxGiven && isDivisionsGiven){
     yStep = (yMax - yMin) / yDivisions;
   } else if (isMinGiven && isStepGiven && isDivisionsGiven){
