@@ -92,8 +92,9 @@ var getYAxisNumbers = function(options){
 var drawBarChart = function(data, options, element){
 
   var chart = createBaseChart(options);
-  if (options.title) { chart.title.setText(options.title); }
   if (options.height) { chart.container.setHeight(options.height); }
+  if (options.id) { chart.container.setId(options.id); }
+  if (options.title) { chart.title.setText(options.title); }
   if (options.width) { chart.container.setWidth(options.width); }
 
   var dataSeries = makeDataSeries(data);

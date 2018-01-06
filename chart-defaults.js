@@ -15,6 +15,9 @@ var CHART_DEFAULTS = {
     setHeight: function(height){
       this._attributes.css.height = height;
     },
+    setId: function(id){
+      this._attributes.id = id;
+    },
     setWidth: function(width){
       this._attributes.css.width = width;
     }

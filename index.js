@@ -25,6 +25,7 @@ $(document).ready(function(){
     yStep: 10,
     yMin: -100
   }
+  options.id = 'chart4';
   drawBarChart(data, options, $('body'));
 });
 
