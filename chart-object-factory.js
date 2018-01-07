@@ -1,5 +1,4 @@
 var ChartObject = Object.create(HtmlSpec);
-console.log(ChartObject);
 
 /** Creates a chart object with a given name, modifying it with the provides options.
  * @param {string} typeName - The name of the chart object in the CHART_DEFINITIONS
@@ -28,7 +27,7 @@ ChartObject.prototype.addNewChild = function(typeName, options){
 var createBaseChart = function(options){
 
   var chart = {};
-  chart.container = ChartObject.create('BarChart', options);
+  chart.container = ChartObject.create('BarChartContainer', options);
   chart.build = function(){
     return this.container.createElement();
   };
