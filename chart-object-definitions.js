@@ -61,15 +61,15 @@ var CHART_DEFINITIONS = {
         'grid-template-rows': 'auto max-content'
       }
     },
-    xAxisCss: {
+    BarChartXAxisCss: {
       'grid-column': '2',
       'grid-row': '2'
     },
-    yAxisCss: {
+    BarChartYAxisCss: {
       'grid-column': '1',
       'grid-row': '1'
     },
-    barAreaCss: {
+    BarChartBarAreaCss: {
       'grid-column': '2',
       'grid-row': '1'
     }

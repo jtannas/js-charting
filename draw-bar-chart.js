@@ -27,7 +27,7 @@ var getMaxDataValue = function(dataSeries){
   var maxValue = -Infinity;
   for (var i = 0; i < dataSeries.length; i++){
     if (dataSeries[i].constructor === Array) {
-      maxValue = Math.max(maxValue, getMax(dataSeries[i]));
+      maxValue = Math.max(maxValue, getMaxDataValue(dataSeries[i]));
     } else {
       maxValue = Math.max(maxValue, dataSeries[i].value);
     }
@@ -40,7 +40,7 @@ var getMinDataValue = function(dataSeries){
   var minValue = Infinity;
   for (var i = 0; i < dataSeries.length; i++){
     if (dataSeries[i].constructor === Array) {
-      minValue = Math.min(minValue, getMax(dataSeries[i]));
+      minValue = Math.min(minValue, getMinDataValue(dataSeries[i]));
     } else {
       minValue = Math.min(minValue, dataSeries[i].value);
     }
@@ -111,7 +111,7 @@ var drawBarChart = function(data, options, element){
   }
 
   yAxisNumbers.forEach(function(labelVal){
-    chart.yAxis.addLabel(labelVal.toLocaleString() + (options.units || ''));
+    chart.yAxis.addLabel(labelVal.toLocaleString() + (options.units || ''), options);
   });
   yZeroPercentHeight = ( 0 - yMin ) / ( yMax - yMin ) * 100;
 
@@ -135,11 +135,11 @@ var drawBarChart = function(data, options, element){
       barBottom = 0;
     }
 
-    var xLabel = chart.xAxis.addLabel(dataPoint.name || dataPoint.value.toString());
+    var xLabel = chart.xAxis.addLabel(dataPoint.name || dataPoint.value.toString(), options);
     xLabel.setPercentWidth(percentWidth);
 
     var barText = dataPoint.value.toString() + (options.units || '');
-    var bar = chart.barArea.addBar(barText);
+    var bar = chart.barArea.addBar(barText, options);
     bar.setColor(dataPoint.color);
     bar.setPercentHeight(barPercentHeight);
     bar.setPercentBottom(barBottom);
