@@ -89,7 +89,7 @@ var setYAxisNumbers = function(dataSeries, options){
 };
 
 
-var constrain = function(x, min, max){
+var constrainBetween = function(x, min, max){
   var result;
   if (x < min){
     result = min;
@@ -124,8 +124,8 @@ var chartSetDataSeries = function(dataSeries, options){
 
     var yData = me.yAxis.getLocationAsDecimal(dataPoint.value);
 
-    var yBarStart = constrain(yZero, 0, 1);
-    var yBarEnd = constrain(yData, 0, 1);
+    var yBarStart = constrainBetween(yZero, 0, 1);
+    var yBarEnd = constrainBetween(yData, 0, 1);
 
     var yBarBottom = Math.min(yBarStart, yBarEnd);
     var yBarTop = Math.max(yBarStart, yBarEnd);
