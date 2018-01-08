@@ -29,11 +29,11 @@ $(document).ready(function(){
   drawBarChart([-15, -20, 4], options, $('body'));
 
   var data = [
-    DataPoint.new(-11, {name: 'a', color: 'red'}),
-    DataPoint.new(-22, {name: 'b', color: 'blue'}),
-    DataPoint.new(33, {name: 'c', color: 'green'}),
-    DataPoint.new(44, {name: 'd', color: 'purple'}),
-    DataPoint.new(57, {name: 'e', color: 'yellow'})
+    DataPoint.new(-11, {name: 'a', 'background-color': 'red'}),
+    DataPoint.new(-22, {name: 'b', 'background-color': 'blue'}),
+    DataPoint.new(33, {name: 'c', 'background-color': 'green'}),
+    DataPoint.new(44, {name: 'd', 'background-color': 'purple'}),
+    DataPoint.new(57, {name: 'e', 'background-color': 'yellow'})
   ];
   options.yAxis = {
     yMax: 100,
