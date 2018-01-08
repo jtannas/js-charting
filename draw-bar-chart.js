@@ -18,21 +18,30 @@ var getYAxisNumbers = function(options){
   var yMax = options.yMax;
   var yStep = options.yStep;
   var yDivisions = options.yDivisions;
+  var yNumbers = [];
 
   if (isMinGiven && isMaxGiven && isStepGiven && isDivisionsGiven){
     throw 'Y-Axis is over-defined';
   } else if (isMinGiven && isMaxGiven && isStepGiven){
-    yMax += (yMax - yMin) % yStep;
+    yMin = Math.floor(yMin / yStep) * yStep;
+    yMax = Math.ceil(yMax / yStep) * yStep;
+    yNumbers = range(yMin, yMax, yStep);
   } else if (isMinGiven && isMaxGiven && isDivisionsGiven){
-    yStep = (yMax - yMin) / yDivisions;
+    yStep = Math.abs(yMax - yMin) / yDivisions;
+    // here yStep is prone to floating point errors, so range is not used
+    for (var i = 0; i <= yDivisions; i++){
+      yNumbers.push(yMin + (i * yStep));
+    }
   } else if (isMinGiven && isStepGiven && isDivisionsGiven){
     yMax = yMin + (yStep * yDivision);
+    yNumbers = range(yMin, yMax, yStep);
   } else if (isMaxGiven && isStepGiven && isDivisionsGiven){
     yMin = yMax - (yStep * yDivision);
+    yNumbers = range(yMin, yMax, yStep);
   } else {
     throw 'Y-Axis is under-defined';
   }
-  return range(yMin, yMax, yStep).reverse();
+  return yNumbers.reverse();
 };
 
 
@@ -61,7 +70,8 @@ var drawBarChart = function(data, options, element){
   }
 
   yAxisNumbers.forEach(function(labelVal){
-    chart.yAxis.addLabel(labelVal.toLocaleString() + (options.units || ''), options);
+    var labelText = labelVal.toLocaleString() + (options.units || '');
+    chart.yAxis.addLabel(labelText, options);
   });
   yZeroPercentHeight = ( 0 - yMin ) / ( yMax - yMin ) * 100;
 

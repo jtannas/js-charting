@@ -13,6 +13,21 @@ $(document).ready(function(){
     yDivisions: 10
   };
   drawBarChart([15, 20, 25], options, $('body'));
+
+  options.yAxis = {
+    yMin: -23,
+    yMax: 5,
+    yStep: 5
+  };
+  drawBarChart([-15, -20, -5], options, $('body'));
+
+  options.yAxis = {
+    yMin: -23,
+    yMax: 5,
+    yDivisions: 10
+  };
+  drawBarChart([-15, -20, 4], options, $('body'));
+
   var data = [
     DataPoint.new(-11, {name: 'a', color: 'red'}),
     DataPoint.new(-22, {name: 'b', color: 'blue'}),
