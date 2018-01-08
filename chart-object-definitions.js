@@ -7,13 +7,15 @@
  */
 var CHART_DEFINITIONS = {};
 
-CHART_DEFINITIONS.BarChartContainer = {
-  '_type': 'div',
-  '_attributes': {
-    'css': {
-      'display': 'flex',
-      'flex-direction': 'column'
-    }
+var common = {
+  setBackground: function(background){
+    this._attributes.css['background'] = background;
+  },
+  setBackgroundColor: function(backgroundColor){
+    this._attributes.css['background-color'] = backgroundColor;
+  },
+  setBottom: function(bottom){
+    this._attributes.css.bottom = bottom;
   },
   setHeight: function(height){
     this._attributes.css.height = height;
@@ -21,13 +23,28 @@ CHART_DEFINITIONS.BarChartContainer = {
   setId: function(id){
     this._attributes.id = id;
   },
+  setTitle: function(title){
+    this._attributes.title = title;
+  },
+  setText: function(text){
+    this._attributes.innerHTML = text;
+  },
   setWidth: function(width){
     this._attributes.css.width = width;
-  }
+  },
+  _type: 'div'
 };
 
-CHART_DEFINITIONS.BarChartBarArea = {
-  '_type': 'div',
+CHART_DEFINITIONS.BarChartContainer = $.extend(true, {}, common, {
+  '_attributes': {
+    'css': {
+      'display': 'flex',
+      'flex-direction': 'column'
+    }
+  }
+});
+
+CHART_DEFINITIONS.BarChartBarArea = $.extend(true, {}, common, {
   '_attributes': {
     'class': 'bar-area',
     'css': {
@@ -36,22 +53,17 @@ CHART_DEFINITIONS.BarChartBarArea = {
       'justify-content': 'space-around'
     }
   }
-};
+});
 
-CHART_DEFINITIONS.BarChartBarValueLabel = {
-  '_type': 'div',
+CHART_DEFINITIONS.BarChartBarValueLabel = $.extend(true, {}, common, {
   '_attributes': {
     'css': {
       'text-align': 'center'
     }
-  },
-  setText: function(text){
-    this._attributes.innerHTML = text;
   }
-};
+});
 
-CHART_DEFINITIONS.BarChartGraphContent = {
-  '_type': 'div',
+CHART_DEFINITIONS.BarChartGraphContent = $.extend(true, {}, common, {
   '_attributes': {
     'css': {
       'display': 'grid',
@@ -73,10 +85,9 @@ CHART_DEFINITIONS.BarChartGraphContent = {
     'grid-column': '2',
     'grid-row': '1'
   }
-};
+});
 
-CHART_DEFINITIONS.BarChartSingleBar = {
-  '_type': 'div',
+CHART_DEFINITIONS.BarChartSingleBar = $.extend(true, {}, common, {
   '_attributes': {
     'class': 'single-bar',
     'css': {
@@ -84,24 +95,11 @@ CHART_DEFINITIONS.BarChartSingleBar = {
       'flex-basis': '0',
       'flex-grow': '1'
     }
-  },
-  setColor: function(color){
-    this._attributes.css['background-color'] = color;
-  },
-  setPercentBottom: function(percentBottom){
-    this._attributes.css.bottom = percentBottom.toString() + '%';
-  },
-  setPercentHeight: function(percentHeight){
-    this._attributes.css.height = percentHeight.toString() + '%';
-  },
-  setPercentWidth: function(percentWidth){
-    this._attributes.css.width = percentWidth.toString() + '%';
   }
-};
+});
 
-CHART_DEFINITIONS.BarChartStackedBar = {
-  'type': 'div',
-  'attributes': {
+CHART_DEFINITIONS.BarChartStackedBar = $.extend(true, {}, common, {
+  '_attributes': {
     'class': 'stacked-bar',
     'css': {
       'display': 'flexbox',
@@ -109,22 +107,13 @@ CHART_DEFINITIONS.BarChartStackedBar = {
       'flex-direction': 'column',
       'flex-grow': '1'
     }
-  },
-  setPercentHeight: function(percentHeight){
-    this._attributes.css.height = percentHeight.toString() + '%';
   }
-};
+});
 
-CHART_DEFINITIONS.BarChartTitle = {
-  '_type': 'div',
-  setText: function(text){
-    this._attributes.innerHTML = text;
-    return text;
-  }
-};
+CHART_DEFINITIONS.BarChartTitle = $.extend(true, {}, common, {
+});
 
-CHART_DEFINITIONS.BarChartXAxis = {
-  '_type': 'div',
+CHART_DEFINITIONS.BarChartXAxis = $.extend(true, {}, common, {
   '_attributes': {
     'css': {
       'display': 'flex',
@@ -133,26 +122,18 @@ CHART_DEFINITIONS.BarChartXAxis = {
       'justify-content': 'space-around'
     }
   }
-};
+});
 
-CHART_DEFINITIONS.BarChartXAxisLabel = {
-  '_type': 'div',
+CHART_DEFINITIONS.BarChartXAxisLabel = $.extend(true, {}, common, {
   '_attributes': {
     'class': 'x-axis-label',
     'css': {
       'flex': '1'
     }
-  },
-  setText: function(text){
-    this._attributes.innerHTML = text;
-  },
-  setPercentWidth: function(percentWidth){
-    this._attributes.css.width = percentWidth.toString() + '%';
   }
-};
+});
 
-CHART_DEFINITIONS.BarChartYAxis = {
-  '_type': 'div',
+CHART_DEFINITIONS.BarChartYAxis = $.extend(true, {}, common, {
   '_attributes': {
     'css': {
       'display': 'flex',
@@ -161,11 +142,7 @@ CHART_DEFINITIONS.BarChartYAxis = {
       'justify-content': 'space-between'
     }
   }
-};
+});
 
-CHART_DEFINITIONS.BarChartYAxisLabel = {
-  '_type': 'div',
-  setText: function(text){
-    this._attributes.innerHTML = text;
-  }
-};
+CHART_DEFINITIONS.BarChartYAxisLabel = $.extend(true, {}, common, {
+});
