@@ -8,6 +8,9 @@
 var CHART_DEFINITIONS = {};
 
 var common = {
+  clearChildren: function(){
+    this._children = [];
+  },
   setBackground: function(background){
     this._attributes.css['background'] = background;
   },
@@ -137,7 +140,7 @@ CHART_DEFINITIONS.BarChartYAxis = $.extend(true, {}, common, {
   '_attributes': {
     'css': {
       'display': 'flex',
-      'flex-direction': 'column',
+      'flex-direction': 'column-reverse',
       'height': '100%',
       'justify-content': 'space-between'
     }

@@ -10,7 +10,7 @@ $(document).ready(function(){
   options.yAxis = {
     yMin: 10,
     yMax: 35,
-    yDivisions: 10
+    yLabelCount: 11
   };
   drawBarChart([15, 20, 25], options, $('body'));
 
@@ -24,7 +24,7 @@ $(document).ready(function(){
   options.yAxis = {
     yMin: -23,
     yMax: 5,
-    yDivisions: 10
+    yLabelCount: 10
   };
   drawBarChart([-15, -20, 4], options, $('body'));
 

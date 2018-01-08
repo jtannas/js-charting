@@ -36,7 +36,7 @@ function HtmlSpec(options){
   this._children = options._children || [];
 }
 HtmlSpec.prototype = {
-  addChild: function(child){
+  pushChild: function(child){
     this._children.push(child);
   },
   createElement: function(){

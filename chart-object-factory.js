@@ -13,49 +13,60 @@ ChartObject.create = function(typeName, options){
   return this.createUsingExtendedOptions(typeName, [definitions, settings, objOptions]);
 };
 
-
 ChartObject.prototype.addNewChild = function(typeName, options){
   var newObject = ChartObject.create(typeName, options);
   if (this[typeName + 'Css']){
     newObject.extendCss(this[typeName + 'Css']);
   }
-  this.addChild(newObject);
+  this.pushChild(newObject);
   return newObject;
 };
 
 
-var createBaseChart = function(options){
+var createBaseBarChart = function(options){
 
   var chart = {};
   chart.container = ChartObject.create('BarChartContainer', options);
-  chart.build = function(){
-    return this.container.createElement();
-  };
+  if (!chart.build){
+    chart.build = function(){
+      return this.container.createElement();
+    };
+  }
 
   chart.title = chart.container.addNewChild('BarChartTitle', options);
   chart.graphContents = chart.container.addNewChild('BarChartGraphContent', options);
 
   chart.xAxis = chart.graphContents.addNewChild('BarChartXAxis', options);
-  chart.xAxis.addLabel = function(text, options) {
-    var xLabel = this.addNewChild('BarChartXAxisLabel', options);
-    xLabel.setText(text);
-    return xLabel;
-  };
+  if (!chart.xAxis.addLabel){
+    chart.xAxis.addLabel = function(text, options) {
+      var xLabel = this.addNewChild('BarChartXAxisLabel', options);
+      xLabel.setText(text);
+      return xLabel;
+    };
+  }
 
   chart.yAxis = chart.graphContents.addNewChild('BarChartYAxis', options);
-  chart.yAxis.addLabel = function(text, options){
-    var yLabel = this.addNewChild('BarChartYAxisLabel', options);
-    yLabel.setText(text);
-    return yLabel;
-  };
+  if (!chart.yAxis.addLabel){
+    chart.yAxis.addLabel = function(text, options){
+      var yLabel = this.addNewChild('BarChartYAxisLabel', options);
+      yLabel.setText(text);
+      return yLabel;
+    };
+  }
 
   chart.barArea = chart.graphContents.addNewChild('BarChartBarArea', options);
-  chart.barArea.addBar = function(valueLabel, options){
-    var bar = this.addNewChild('BarChartSingleBar', options);
-    var barValueLabel = bar.addNewChild('BarChartBarValueLabel', options);
-    barValueLabel.setText(valueLabel);
-    return bar;
-  };
+  if (!chart.addBar){
+    chart.addBar = function(){
+      throw "The Base Bar Chart does not implement the addition of bars.";
+    };
+  }
+
+  if (!chart.clearData){
+    chart.clearData = function(){
+      this.barArea.clearChildren();
+      this.xAxis.clearChildren();
+    };
+  }
 
   return chart;
 };
