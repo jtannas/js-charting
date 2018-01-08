@@ -1,54 +1,3 @@
-function DataPoint(value, name, color){
-  this.value = (value || null);
-  this.name = (name || '');
-  this.color = (color || 'white');
-}
-
-
-var makeDataSeries = function(dataArray){
-  var data = [];
-  for (var i = 0; i < dataArray.length; i++){
-    if (dataArray[i].constructor === Array) {
-      data.push(makeDataSeries(dataArray[i]));
-    } else {
-      var dp = new DataPoint(
-        dataArray[i].value || dataArray[i],
-        dataArray[i].name || i.toString(),
-        dataArray[i].color
-      );
-      data.push(dp);
-    }
-  }
-  return data;
-};
-
-
-var getMaxDataValue = function(dataSeries){
-  var maxValue = -Infinity;
-  for (var i = 0; i < dataSeries.length; i++){
-    if (dataSeries[i].constructor === Array) {
-      maxValue = Math.max(maxValue, getMaxDataValue(dataSeries[i]));
-    } else {
-      maxValue = Math.max(maxValue, dataSeries[i].value);
-    }
-  }
-  return maxValue;
-};
-
-
-var getMinDataValue = function(dataSeries){
-  var minValue = Infinity;
-  for (var i = 0; i < dataSeries.length; i++){
-    if (dataSeries[i].constructor === Array) {
-      minValue = Math.min(minValue, getMinDataValue(dataSeries[i]));
-    } else {
-      minValue = Math.min(minValue, dataSeries[i].value);
-    }
-  }
-  return minValue;
-};
-
-
 var range = function(start, stop, step){
   // Inspired by the range function in Python
   var result = [];
@@ -95,18 +44,19 @@ var drawBarChart = function(data, options, element){
   if (options.title) { chart.title.setText(options.title); }
   if (options.width) { chart.container.setWidth(options.width); }
 
-  var dataSeries = makeDataSeries(data);
+  var dataSeries = DataSeries.makeFromBestGuess(data);
 
   var yAxisOptions = options.yAxis || {
-    yMax: Math.max(getMaxDataValue(dataSeries), 0),
-    yMin: Math.min(getMinDataValue(dataSeries), 0),
+    yMax: Math.max(dataSeries.maxValue(), 0),
+    yMin: Math.min(dataSeries.minValue(), 0),
     yDivisions: 5
   };
+
   var yAxisNumbers = getYAxisNumbers(yAxisOptions);
   var yMax = yAxisNumbers[0];
   var yMin = yAxisNumbers[yAxisNumbers.length - 1];
 
-  if (yMin > getMinDataValue(dataSeries) || yMax < getMaxDataValue(dataSeries)){
+  if (yMin > dataSeries.minValue() || yMax < dataSeries.maxValue()){
     throw 'Chart Error: Data out of provided graph bounds';
   }
 
@@ -115,8 +65,8 @@ var drawBarChart = function(data, options, element){
   });
   yZeroPercentHeight = ( 0 - yMin ) / ( yMax - yMin ) * 100;
 
-  dataSeries.forEach(function(dataPoint){
-    var percentWidth = 100 / dataSeries.length;
+  dataSeries.dataPoints.forEach(function(dataPoint){
+    var percentWidth = 100 / dataSeries.length();
     var barPercentHeight = 0;
     var barBottom = 0;
 
