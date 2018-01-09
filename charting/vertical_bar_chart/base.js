@@ -44,19 +44,6 @@ var createBaseBarChart = function(options){
 };
 
 
-var constrainBetween = function(x, min, max){
-  var result;
-  if (x < min){
-    result = min;
-  } else if (x > max) {
-    result = max;
-  } else {
-    result = x;
-  }
-  return result;
-};
-
-
 var setYAxisNumbers = function(yOptions, options){
   var isMinGiven = (yOptions.yMin !== undefined);
   var isMaxGiven = (yOptions.yMax !== undefined);

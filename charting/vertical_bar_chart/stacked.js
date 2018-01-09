@@ -1,13 +1,5 @@
 "use strict";
 
-var sumIf = function(arr, testFunc){
-  var sum = 0;
-  arr.forEach(function(element){
-    sum += testFunc(element) === true ? element : 0;
-  });
-  return sum;
-};
-
 var getMinStackHeight = function(dataCluster){
   var isNegative = function(x){ return (x < 0); };
   var currentMin = Infinity;

@@ -1,5 +1,7 @@
 "use strict";
 
+"use strict";
+
 /** This is a variation on the idea of building an array from min-max-step.
  *  It expands the outer bounds as needed to ensure that both given bounds
  *  are contained within the returned array. This prevents graph data from
@@ -45,4 +47,13 @@ var linearArrayFromMaxStepLen = function(max, step, len){
     arr.push(max - (i * step));
   }
   return arr;
+};
+
+
+var sumIf = function(arr, testFunc){
+  var sum = 0;
+  arr.forEach(function(element){
+    sum += testFunc(element) === true ? element : 0;
+  });
+  return sum;
 };
