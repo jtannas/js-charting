@@ -34,6 +34,8 @@ var populateStackedVerticalBarChart = function(dataCluster, options){
   var yZero = this.yAxis.getLocationAsDecimal(0);
 
   var me = this;
+  var decimalToPercentageText = _c_.utils.css.decimalToPercentageText;
+
   dataCluster.dataSerieses.forEach(function(dataSeries){
     var bar = me.barArea.addNewChild('BarChartStackedBar', options);
 
