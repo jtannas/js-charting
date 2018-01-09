@@ -10,7 +10,7 @@ var ChartObject = Object.create(_c_.HtmlSpec);
  */
 ChartObject.create = function(typeName, options){
   var definitions = _c_.HtmlSpec.definitions[typeName] || {};
-  var settings = ('CHART_SETTINGS' in window) ? CHART_SETTINGS[typeName] || {} : {};
+  var settings = _c_.HtmlSpec.settings[typeName] || {};
   var objOptions = options[typeName] || {};
   return this.createUsingExtendedOptions(typeName, [definitions, settings, objOptions]);
 };

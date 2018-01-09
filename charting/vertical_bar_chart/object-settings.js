@@ -1,6 +1,6 @@
 "use strict";
 
-CHART_SETTINGS.setObjectSettings('BarChartContainer', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartContainer', {
   '_attributes': {
     'class': 'bar_chart',
     'css': {
@@ -10,13 +10,13 @@ CHART_SETTINGS.setObjectSettings('BarChartContainer', {
   }
 });
 
-CHART_SETTINGS.setObjectSettings('BarChartBarArea', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartBarArea', {
   '_attributes': {
     'class': 'bar-area'
   }
 });
 
-CHART_SETTINGS.setObjectSettings('BarChartBarValueLabel', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartBarValueLabel', {
   '_attributes': {
     'class': 'value-label',
     'css': {
@@ -25,13 +25,13 @@ CHART_SETTINGS.setObjectSettings('BarChartBarValueLabel', {
   }
 });
 
-CHART_SETTINGS.setObjectSettings('BarChartGraphContent', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartGraphContent', {
   '_attributes': {
     'class': 'graph-contents'
   }
 });
 
-CHART_SETTINGS.setObjectSettings('BarChartSingleBar', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartSingleBar', {
   '_attributes': {
     'class': 'single-bar',
     'css': {
@@ -40,25 +40,25 @@ CHART_SETTINGS.setObjectSettings('BarChartSingleBar', {
   }
 });
 
-CHART_SETTINGS.setObjectSettings('BarChartStackedBar', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartStackedBar', {
   '_attributes': {
     'class': 'stacked-bar'
   }
 });
 
-CHART_SETTINGS.setObjectSettings('BarChartStackedNegativeBarSection', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartStackedNegativeBarSection', {
   '_attributes': {
     'class': 'negative-portion'
   }
 });
 
-CHART_SETTINGS.setObjectSettings('BarChartStackedPositiveBarSection', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartStackedPositiveBarSection', {
   '_attributes': {
     'class': 'positive-portion'
   }
 });
 
-CHART_SETTINGS.setObjectSettings('BarChartStackedDataBar', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartStackedDataBar', {
   '_attributes': {
     'class': 'stacked-inner-bar',
     'css': {
@@ -67,7 +67,7 @@ CHART_SETTINGS.setObjectSettings('BarChartStackedDataBar', {
   }
 });
 
-CHART_SETTINGS.setObjectSettings('BarChartTitle', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartTitle', {
   '_attributes': {
     'class': 'title',
     'css': {
@@ -77,7 +77,7 @@ CHART_SETTINGS.setObjectSettings('BarChartTitle', {
   }
 });
 
-CHART_SETTINGS.setObjectSettings('BarChartXAxis', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartXAxis', {
   '_attributes': {
     'class': 'x-axis',
     'css': {
@@ -87,13 +87,13 @@ CHART_SETTINGS.setObjectSettings('BarChartXAxis', {
   }
 });
 
-CHART_SETTINGS.setObjectSettings('BarChartXAxisLabel', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartXAxisLabel', {
   '_attributes': {
     'class': 'x-axis-label'
   }
 });
 
-CHART_SETTINGS.setObjectSettings('BarChartYAxis', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartYAxis', {
   '_attributes': {
     'class': 'y-axis',
     'css': {
@@ -102,7 +102,7 @@ CHART_SETTINGS.setObjectSettings('BarChartYAxis', {
   }
 });
 
-CHART_SETTINGS.setObjectSettings('BarChartYAxisLabel', {
+_c_.HtmlSpec.settings._setObjectSettings('BarChartYAxisLabel', {
   '_attributes': {
     'class': 'y-axis-label',
     'css': {
