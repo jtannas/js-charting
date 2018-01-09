@@ -1,3 +1,5 @@
+"use strict";
+
 var populateSimpleVerticalBarChart = function(dataSeries, options){
   this.clearData();
   var barWidth = 1 / dataSeries.length();

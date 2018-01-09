@@ -1,3 +1,5 @@
+"use strict";
+
 var sumIf = function(arr, testFunc){
   var sum = 0;
   arr.forEach(function(element){

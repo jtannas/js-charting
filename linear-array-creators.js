@@ -1,3 +1,5 @@
+"use strict";
+
 /** This is a variation on the idea of building an array from min-max-step.
  *  It expands the outer bounds as needed to ensure that both given bounds
  *  are contained within the returned array. This prevents graph data from

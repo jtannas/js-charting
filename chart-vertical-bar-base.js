@@ -1,3 +1,5 @@
+"use strict";
+
 var createBaseBarChart = function(options){
 
   var chart = {};

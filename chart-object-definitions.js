@@ -1,3 +1,4 @@
+"use strict";
 /** Each property of this object is meant as an object definition for an object factory.
  * These are intended to extend the HtmlSpec defined in html-builder.js
  * They can be extended or overridden via CHART_SETTINGS or provided options.

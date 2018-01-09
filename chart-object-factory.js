@@ -1,3 +1,5 @@
+"use strict";
+
 var ChartObject = Object.create(HtmlSpec);
 
 /** Creates a chart object with a given name, modifying it with the provides options.

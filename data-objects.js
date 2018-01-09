@@ -1,3 +1,5 @@
+"use strict";
+
 var DataPoint = function(value, options){
   this.value = (value || null);
   $.extend(this, options);
@@ -75,7 +77,7 @@ var DataCluster = function(){
 
 DataCluster.prototype.pushDataSeries = function(dataSeries){
   this.dataSerieses.push(dataSeries);
-}
+};
 
 DataCluster.prototype.maxValue = function(){
   return Math.max.apply(null, this.dataSerieses.map(function(dataSeries){ return dataSeries.maxValue(); }));
