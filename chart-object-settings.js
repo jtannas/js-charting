@@ -51,6 +51,27 @@ CHART_SETTINGS.BarChartStackedBar = {
   }
 };
 
+CHART_SETTINGS.BarChartStackedNegativeBarSection = {
+  '_attributes': {
+    'class': 'negative-portion'
+  }
+};
+
+CHART_SETTINGS.BarChartStackedPositiveBarSection = {
+  '_attributes': {
+    'class': 'positive-portion'
+  }
+};
+
+CHART_SETTINGS.BarChartStackedDataBar = {
+  '_attributes': {
+    'class': 'stacked-inner-bar',
+    'css': {
+      'border': '1px solid black'
+    }
+  }
+};
+
 CHART_SETTINGS.BarChartTitle = {
   '_attributes': {
     'class': 'title',

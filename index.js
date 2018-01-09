@@ -29,18 +29,26 @@ $(document).ready(function(){
   drawBarChart([-15, -20, 4], options, $('body'));
 
   var data = [
-    DataPoint.new(-11, {name: 'a', 'background-color': 'red'}),
-    DataPoint.new(-22, {name: 'b', 'background-color': 'blue'}),
-    DataPoint.new(33, {name: 'c', 'background-color': 'green'}),
-    DataPoint.new(44, {name: 'd', 'background-color': 'purple'}),
-    DataPoint.new(57, {name: 'e', 'background-color': 'yellow'})
+    DataPoint.new(-1, {name: 'a', 'background-color': 'red'}),
+    DataPoint.new(-2, {name: 'b', 'background-color': 'blue'}),
+    DataPoint.new(-3, {name: 'c', 'background-color': 'green'}),
+    DataPoint.new(4, {name: 'd', 'background-color': 'purple'}),
+    DataPoint.new(5, {name: 'e', 'background-color': 'yellow'})
   ];
-  options.yAxis = {
-    yMax: 100,
-    yStep: 10,
-    yMin: -100
-  };
+
   options.id = 'chart4';
   drawBarChart(data, options, $('body'));
+
+  options.yAxis = {
+    yMax: 10,
+    yStep: 2,
+    yMin: -10
+  };
+  var dataCluster = new DataCluster();
+  dataCluster.pushDataSeries(DataSeries.makeFromDataPointArray(data));
+  dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([1, 2, 3]));
+  dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([-1, -2, -3]));
+  dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([1, -2, 3]));
+  drawStackedBarChart(dataCluster, options, $('body'));
 });
 

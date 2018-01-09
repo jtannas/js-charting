@@ -68,3 +68,23 @@ DataSeries.prototype.length = function(){
   return this.dataPoints.length;
 };
 
+
+var DataCluster = function(){
+  this.dataSerieses = [];
+};
+
+DataCluster.prototype.pushDataSeries = function(dataSeries){
+  this.dataSerieses.push(dataSeries);
+}
+
+DataCluster.prototype.maxValue = function(){
+  return Math.max.apply(null, this.dataSerieses.map(function(dataSeries){ return dataSeries.maxValue(); }));
+};
+
+DataCluster.prototype.minValue = function(){
+  return Math.max.apply(null, this.dataSerieses.map(function(dataSeries){ return dataSeries.maxValue(); }));
+};
+
+DataCluster.prototype.length = function(){
+  return this.dataSerieses.length;
+};

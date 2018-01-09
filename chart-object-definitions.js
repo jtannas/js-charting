@@ -35,12 +35,16 @@ var common = {
   setWidth: function(width){
     this._attributes.css.width = width;
   },
-  _type: 'div'
+  _type: 'div',
+  _attributes: {
+    'css': {}
+  }
 };
 
 CHART_DEFINITIONS.BarChartContainer = $.extend(true, {}, common, {
   '_attributes': {
     'css': {
+      'box-sizing': 'border-box',
       'display': 'flex',
       'flex-direction': 'column'
     }
@@ -103,14 +107,24 @@ CHART_DEFINITIONS.BarChartSingleBar = $.extend(true, {}, common, {
 
 CHART_DEFINITIONS.BarChartStackedBar = $.extend(true, {}, common, {
   '_attributes': {
-    'class': 'stacked-bar',
     'css': {
       'display': 'flexbox',
       'flex-basis': '0',
-      'flex-direction': 'column',
-      'flex-grow': '1'
+      'flex-direction': 'column-reverse',
+      'flex-grow': '1',
+      'justify-content': 'flex-end',
+      'position': 'relative'
     }
   }
+});
+
+CHART_DEFINITIONS.BarChartStackedNegativeBarSection = $.extend(true, {}, common, {
+});
+
+CHART_DEFINITIONS.BarChartStackedPositiveBarSection = $.extend(true, {}, common, {
+});
+
+CHART_DEFINITIONS.BarChartStackedDataBar = $.extend(true, {}, common, {
 });
 
 CHART_DEFINITIONS.BarChartTitle = $.extend(true, {}, common, {
