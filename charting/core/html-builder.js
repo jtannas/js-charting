@@ -1,15 +1,16 @@
 "use strict";
-function HtmlSpec(options){
+
+_c_.HtmlSpec = function(options){
   this._type = options._type || 'div';
   this._attributes = options._attributes || {};
   this._children = options._children || [];
-}
+};
 
-HtmlSpec.new = function(options){
-  return new HtmlSpec(options);
-}
+_c_.HtmlSpec.new = function(options){
+  return new _c_.HtmlSpec(options);
+};
 
-HtmlSpec.prototype = {
+_c_.HtmlSpec.prototype = {
   pushChild: function(child){
     this._children.push(child);
   },
@@ -17,7 +18,7 @@ HtmlSpec.prototype = {
     var $element = $(document.createElement(this._type));
     $element.setAttrs(this._attributes);
     (this._children).forEach(function(child){
-      var $childElement = HtmlSpec.new(child).createElement();
+      var $childElement = _c_.HtmlSpec.new(child).createElement();
       $element.append($childElement);
     });
     return $element;
@@ -27,8 +28,8 @@ HtmlSpec.prototype = {
   }
 };
 
-HtmlSpec.createUsingExtendedOptions = function(specName, optionsArray){
-  var newSpec = HtmlSpec.new({});
+_c_.HtmlSpec.createUsingExtendedOptions = function(specName, optionsArray){
+  var newSpec = _c_.HtmlSpec.new({});
   optionsArray.forEach(function(optionsObject){
     $.extend(true, newSpec, optionsObject);
   });
