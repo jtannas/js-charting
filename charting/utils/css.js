@@ -7,3 +7,4 @@ var decimalToPercentageText = function(decimal, decimalPlaces){
   }
   return percentage + '%';
 };
+
