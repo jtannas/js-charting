@@ -51,6 +51,6 @@ $(document).ready(function(){
   dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([1, 2, 3]));
   dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([-1, -2, -3]));
   dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([1, -2, 3]));
-  drawStackedBarChart(dataCluster, options, $('body'));
+  drawBarChart(dataCluster, options, $('body'));
 });
 
