@@ -1,3 +1,5 @@
+"use strict";
+
 $.fn.extend({
   setAttrs: function(attributesObject){
     return this.each(function() {
@@ -9,7 +11,8 @@ $.fn.extend({
         'html': $.fn.html.bind($element),
         'innerHTML': $.fn.html.bind($element)
       };
-      ownKeyIntersection(specialAttrFunctions, attributesCopy).forEach(function(key){
+      var intersect = _c_.utils.objects.ownKeyIntersection;
+      intersect(specialAttrFunctions, attributesCopy).forEach(function(key){
         specialAttrFunctions[key](attributesCopy[key]);
         delete attributesCopy[key];
       });
