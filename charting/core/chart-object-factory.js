@@ -9,7 +9,7 @@ var ChartObject = Object.create(_c_.HtmlSpec);
     of the returned object.
  */
 ChartObject.create = function(typeName, options){
-  var definitions = ('CHART_DEFINITIONS' in window) ? CHART_DEFINITIONS[typeName] || {} : {};
+  var definitions = _c_.HtmlSpec.definitions[typeName] || {};
   var settings = ('CHART_SETTINGS' in window) ? CHART_SETTINGS[typeName] || {} : {};
   var objOptions = options[typeName] || {};
   return this.createUsingExtendedOptions(typeName, [definitions, settings, objOptions]);

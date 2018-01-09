@@ -1,16 +1,14 @@
 "use strict";
 
 /** This object contains chart object definitions.
- *  CHART_DEFINITIONS is for functionally required properties
- *  CHART_SETTINGS is for aesthetic properties or overriding the definitions
+ *  _c_.HtmlSpec.definitions is for functionally required properties
+ *  _c_.HtmlSpec.settings is for aesthetic properties or overriding the definitions
  *  These definitions and settings are independent of each other - think of
  *    them as building blocks.
- *
- * The object format is 'HtmlSpec', an object defined in html-builder.js
  */
-var CHART_DEFINITIONS = {};
+_c_.HtmlSpec.definitions = {};
 
-CHART_DEFINITIONS._common = {
+_c_.HtmlSpec.definitions._common = {
   clearChildren: function(){
     this._children = [];
   },
@@ -44,6 +42,6 @@ CHART_DEFINITIONS._common = {
   }
 };
 
-CHART_DEFINITIONS.setObjectDefinition = function(objName, objDefinition){
+_c_.HtmlSpec.definitions._setObjectDefinition = function(objName, objDefinition){
   this[objName] = $.extend(true, {}, this._common, objDefinition);
 };

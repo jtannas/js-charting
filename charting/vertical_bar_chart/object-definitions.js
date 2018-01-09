@@ -1,6 +1,6 @@
 "use strict";
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartContainer', {
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartContainer', {
   '_attributes': {
     'css': {
       'box-sizing': 'border-box',
@@ -10,7 +10,7 @@ CHART_DEFINITIONS.setObjectDefinition('BarChartContainer', {
   }
 });
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartBarArea', {
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartBarArea', {
   '_attributes': {
     'class': 'bar-area',
     'css': {
@@ -21,7 +21,7 @@ CHART_DEFINITIONS.setObjectDefinition('BarChartBarArea', {
   }
 });
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartBarValueLabel', {
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartBarValueLabel', {
   '_attributes': {
     'css': {
       'text-align': 'center'
@@ -29,7 +29,7 @@ CHART_DEFINITIONS.setObjectDefinition('BarChartBarValueLabel', {
   }
 });
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartGraphContent', {
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartGraphContent', {
   '_attributes': {
     'css': {
       'display': 'grid',
@@ -53,7 +53,7 @@ CHART_DEFINITIONS.setObjectDefinition('BarChartGraphContent', {
   }
 });
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartSingleBar', {
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartSingleBar', {
   '_attributes': {
     'class': 'single-bar',
     'css': {
@@ -64,7 +64,7 @@ CHART_DEFINITIONS.setObjectDefinition('BarChartSingleBar', {
   }
 });
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartStackedBar', {
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartStackedBar', {
   '_attributes': {
     'css': {
       'display': 'flexbox',
@@ -77,15 +77,15 @@ CHART_DEFINITIONS.setObjectDefinition('BarChartStackedBar', {
   }
 });
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartStackedNegativeBarSection', {});
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartStackedNegativeBarSection', {});
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartStackedPositiveBarSection', {});
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartStackedPositiveBarSection', {});
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartStackedDataBar', {});
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartStackedDataBar', {});
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartTitle', {});
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartTitle', {});
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartXAxis', {
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartXAxis', {
   '_attributes': {
     'css': {
       'display': 'flex',
@@ -96,7 +96,7 @@ CHART_DEFINITIONS.setObjectDefinition('BarChartXAxis', {
   }
 });
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartXAxisLabel', {
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartXAxisLabel', {
   '_attributes': {
     'class': 'x-axis-label',
     'css': {
@@ -105,7 +105,7 @@ CHART_DEFINITIONS.setObjectDefinition('BarChartXAxisLabel', {
   }
 });
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartYAxis', {
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartYAxis', {
   '_attributes': {
     'css': {
       'display': 'flex',
@@ -116,4 +116,4 @@ CHART_DEFINITIONS.setObjectDefinition('BarChartYAxis', {
   }
 });
 
-CHART_DEFINITIONS.setObjectDefinition('BarChartYAxisLabel', {});
+_c_.HtmlSpec.definitions._setObjectDefinition('BarChartYAxisLabel', {});
