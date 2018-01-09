@@ -1,6 +1,8 @@
 "use strict";
 
-var constrainBetween = function(x, min, max){
+_c_.utils.numbers = {};
+
+_c_.utils.numbers.constrainBetween = function(x, min, max){
   var result;
   if (x < min){
     result = min;
@@ -11,4 +13,3 @@ var constrainBetween = function(x, min, max){
   }
   return result;
 };
-

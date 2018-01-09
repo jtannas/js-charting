@@ -8,6 +8,7 @@ var populateSimpleVerticalBarChart = function(dataSeries, options){
 
   var me = this;
   var decimalToPercentageText = _c_.utils.css.decimalToPercentageText;
+  var constrainBetween = _c_.utils.numbers.constrainBetween;
 
   dataSeries.dataPoints.forEach(function(dataPoint){
     var bar = me.barArea.addNewChild('BarChartSingleBar', options);
