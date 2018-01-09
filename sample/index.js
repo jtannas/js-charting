@@ -1,11 +1,17 @@
 "use strict";
 
 $(document).ready(function(){
+
   var options = {
     title: 'Chart',
     height: '500px'
   };
+
+  var currentIdNumber = 1;
+  options.id = 'chart' + currentIdNumber++;
   drawBarChart([11, 22, 33, 44, 57], options, $('body'));
+
+  options.id = 'chart' + currentIdNumber++;
   drawBarChart([-1, -2, -3, -4, -9], options, $('body'));
 
 
@@ -14,6 +20,7 @@ $(document).ready(function(){
     yMax: 35,
     yLabelCount: 11
   };
+  options.id = 'chart' + currentIdNumber++;
   drawBarChart([15, 20, 25], options, $('body'));
 
   options.yAxis = {
@@ -21,6 +28,7 @@ $(document).ready(function(){
     yMax: 5,
     yStep: 5
   };
+  options.id = 'chart' + currentIdNumber++;
   drawBarChart([-15, -20, -5], options, $('body'));
 
   options.yAxis = {
@@ -28,6 +36,7 @@ $(document).ready(function(){
     yMax: 5,
     yLabelCount: 10
   };
+  options.id = 'chart' + currentIdNumber++;
   drawBarChart([-15, -20, 4], options, $('body'));
 
   var data = [
@@ -38,7 +47,7 @@ $(document).ready(function(){
     DataPoint.new(5, {name: 'e', 'background-color': 'yellow'})
   ];
 
-  options.id = 'chart4';
+  options.id = 'chart' + currentIdNumber++;
   drawBarChart(data, options, $('body'));
 
   options.yAxis = {
@@ -51,6 +60,7 @@ $(document).ready(function(){
   dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([1, 2, 3]));
   dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([-1, -2, -3]));
   dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([1, -2, 3]));
+  options.id = 'chart' + currentIdNumber++;
   drawBarChart(dataCluster, options, $('body'));
 });
 
