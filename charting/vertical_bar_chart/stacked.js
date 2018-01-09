@@ -1,7 +1,9 @@
 "use strict";
 
 var getMinStackHeight = function(dataCluster){
+  var sumIf = _c_.utils.arrays.sumIf;
   var isNegative = function(x){ return (x < 0); };
+
   var currentMin = Infinity;
   dataCluster.dataSerieses.forEach(function(dataSeries){
     var values = dataSeries.dataPoints.map(function(dP){ return dP.value; });
@@ -12,7 +14,9 @@ var getMinStackHeight = function(dataCluster){
 };
 
 var getMaxStackHeight = function(dataCluster){
+  var sumIf = _c_.utils.arrays.sumIf;
   var isPositive = function(x){ return (x > 0); };
+
   var currentMax = -Infinity;
   dataCluster.dataSerieses.forEach(function(dataSeries){
     var values = dataSeries.dataPoints.map(function(dP){ return dP.value; });
@@ -37,6 +41,7 @@ var populateStackedVerticalBarChart = function(dataCluster, options){
     var positiveDataPoints = dataSeries.dataPoints.filter(function(dP){ return dP.value > 0; });
 
     var values = dataSeries.dataPoints.map(function(x){ return x.value; });
+    var sumIf = _c_.utils.arrays.sumIf;
     var sumNegative = sumIf(values, function(x){ return x < 0; });
     var sumPositive = sumIf(values, function(x){ return x > 0; });
 

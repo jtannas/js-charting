@@ -45,6 +45,7 @@ var createBaseBarChart = function(options){
 
 
 var setYAxisNumbers = function(yOptions, options){
+  var utils = _c_.utils.arrays;
   var isMinGiven = (yOptions.yMin !== undefined);
   var isMaxGiven = (yOptions.yMax !== undefined);
   var isStepGiven = (yOptions.yStep !== undefined);
@@ -53,13 +54,13 @@ var setYAxisNumbers = function(yOptions, options){
   if (isMinGiven && isMaxGiven && isStepGiven && isLabelCountGiven){
     throw 'Y-Axis is over-defined';
   } else if (isMinGiven && isMaxGiven && isStepGiven){
-    this.yNumbers = linearAxisArray(yOptions.yMin, yOptions.yMax, yOptions.yStep);
+    this.yNumbers = utils.linearAxisArray(yOptions.yMin, yOptions.yMax, yOptions.yStep);
   } else if (isMinGiven && isMaxGiven && isLabelCountGiven){
-    this.yNumbers = linearArrayFromMinMaxLen(yOptions.yMin, yOptions.yMax, yOptions.yLabelCount);
+    this.yNumbers = utils.linearArrayFromMinMaxLen(yOptions.yMin, yOptions.yMax, yOptions.yLabelCount);
   } else if (isMinGiven && isStepGiven && isLabelCountGiven){
-    this.yNumbers = linearArrayFromMinStepLen(yOptions.yMin, yOptions.yStep, yOptions.yLabelCount);
+    this.yNumbers = utils.linearArrayFromMinStepLen(yOptions.yMin, yOptions.yStep, yOptions.yLabelCount);
   } else if (isMaxGiven && isStepGiven && isLabelCountGiven){
-    this.yNumbers = linearArrayFromMaxStepLen(yOptions.yMax, yOptions.yStep, yOptions.yLabelCount);
+    this.yNumbers = utils.linearArrayFromMaxStepLen(yOptions.yMax, yOptions.yStep, yOptions.yLabelCount);
     this.yNumbers.reverse();
   } else {
     throw 'Y-Axis is under-defined';

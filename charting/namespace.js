@@ -1,1 +1,6 @@
-var _c_ = {}; // namespace for the library
+/** Namespace for the library
+ *
+ */
+var _c_ = {
+  utils: {}
+};

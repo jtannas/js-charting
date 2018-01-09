@@ -1,13 +1,13 @@
 "use strict";
 
-"use strict";
+_c_.utils.arrays = {};
 
 /** This is a variation on the idea of building an array from min-max-step.
  *  It expands the outer bounds as needed to ensure that both given bounds
  *  are contained within the returned array. This prevents graph data from
  *  overflowing the numbers returned for a numerical axis.
 */
-var linearAxisArray = function(maxLBound, minUBound, step){
+_c_.utils.arrays.linearAxisArray = function(maxLBound, minUBound, step){
   var arr = [];
   var min = maxLBound;
   var max = minUBound;
@@ -22,7 +22,7 @@ var linearAxisArray = function(maxLBound, minUBound, step){
 };
 
 
-var linearArrayFromMinMaxLen = function(min, max, len){
+_c_.utils.arrays.linearArrayFromMinMaxLen = function(min, max, len){
   var arr = [];
   var step = (max - min) / (len - 1);
   for (var i = 0; i < len; i++){
@@ -32,7 +32,7 @@ var linearArrayFromMinMaxLen = function(min, max, len){
 };
 
 
-var linearArrayFromMinStepLen = function(min, step, len){
+_c_.utils.arrays.linearArrayFromMinStepLen = function(min, step, len){
   var arr = [];
   for (var i = 0; i < len; i++){
     arr.push(min + (i * step));
@@ -41,7 +41,7 @@ var linearArrayFromMinStepLen = function(min, step, len){
 };
 
 
-var linearArrayFromMaxStepLen = function(max, step, len){
+_c_.utils.arrays.linearArrayFromMaxStepLen = function(max, step, len){
   var arr = [];
   for (var i = 0; i < len; i++){
     arr.push(max - (i * step));
@@ -50,7 +50,7 @@ var linearArrayFromMaxStepLen = function(max, step, len){
 };
 
 
-var sumIf = function(arr, testFunc){
+_c_.utils.arrays.sumIf = function(arr, testFunc){
   var sum = 0;
   arr.forEach(function(element){
     sum += testFunc(element) === true ? element : 0;
