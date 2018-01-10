@@ -12,7 +12,7 @@ _c_.ChartObject.create = function(typeName, options){
   var definitions = _c_.HtmlSpec.definitions[typeName] || {};
   var settings = _c_.HtmlSpec.settings[typeName] || {};
   var objOptions = options[typeName] || {};
-  return this.createUsingExtendedOptions(typeName, [definitions, settings, objOptions]);
+  return this.createUsingExtendedOptions([definitions, settings, objOptions]);
 };
 
 _c_.ChartObject.prototype.addNewChild = function(typeName, options){
