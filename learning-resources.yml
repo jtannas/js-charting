@@ -242,5 +242,9 @@ Resources:
     address: http://usejsdoc.org/
   - name: W3 Schools Css
     address: https://www.w3schools.com/css/default.asp
+  - name: Stack Overflow
+    address: https://stackoverflow.com/
+    notes:
+      - I cannot overstate just how much I lean on stack overflow for ideas
 
 
