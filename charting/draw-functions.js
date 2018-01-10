@@ -2,7 +2,7 @@
 
 var drawSimpleVerticalBarChart = function(data, options, element){
   var dataSeries = DataSeries.makeFromBestGuess(data);
-  var chart = createSimpleVerticalBarChart(options);
+  var chart = _c_.vertical_bar_chart.simpleChart.create(options);
   chart.setDataSeries(dataSeries, options);
 
   var htmlGraph = chart.build();
@@ -13,7 +13,7 @@ var drawSimpleVerticalBarChart = function(data, options, element){
 };
 
 var drawStackedVerticalBarChart = function(dataCluster, options, element){
-  var chart = createStackedVerticalBarChart(options);
+  var chart = _c_.vertical_bar_chart.stackedChart.create(options);
   chart.setDataCluster(dataCluster, options);
 
   var htmlGraph = chart.build();

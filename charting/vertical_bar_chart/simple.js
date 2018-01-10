@@ -1,6 +1,8 @@
 "use strict";
 
-var populateSimpleVerticalBarChart = function(dataSeries, options){
+_c_.vertical_bar_chart.simpleChart = {};
+
+_c_.vertical_bar_chart.simpleChart.populate = function(dataSeries, options){
   this.clearData();
   var barWidth = 1 / dataSeries.length();
   this.yAxis.setYAxisNumbers(dataSeries, options);
@@ -37,8 +39,9 @@ var populateSimpleVerticalBarChart = function(dataSeries, options){
   });
 };
 
-var createSimpleVerticalBarChart = function(options){
-  var chart = createBaseBarChart(options);
+_c_.vertical_bar_chart.simpleChart.create= function(options){
+
+  var chart = _c_.vertical_bar_chart.baseChart.create(options);
 
   if (options.height) { chart.container.setHeight(options.height); }
   if (options.id) { chart.container.setId(options.id); }
@@ -52,7 +55,7 @@ var createSimpleVerticalBarChart = function(options){
         yMin: Math.min(dataSeries.minValue(), 0),
         yLabelCount: 6
       };
-      setYAxisNumbers.call(this, yOptions, options);
+      _c_.vertical_bar_chart.baseChart.setYAxisNumbers.call(this, yOptions, options);
     };
   }
 
@@ -63,7 +66,7 @@ var createSimpleVerticalBarChart = function(options){
   }
 
   if (!chart.setDataSeries){
-    chart.setDataSeries = populateSimpleVerticalBarChart.bind(chart);
+    chart.setDataSeries = this.populate.bind(chart);
   }
 
   return chart;

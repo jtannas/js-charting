@@ -1,6 +1,8 @@
 "use strict";
 
-var getMinStackHeight = function(dataCluster){
+_c_.vertical_bar_chart.stackedChart = {};
+
+_c_.vertical_bar_chart.stackedChart.getMinStackHeight = function(dataCluster){
   var sumIf = _c_.utils.arrays.sumIf;
   var isNegative = function(x){ return (x < 0); };
 
@@ -13,7 +15,7 @@ var getMinStackHeight = function(dataCluster){
   return currentMin;
 };
 
-var getMaxStackHeight = function(dataCluster){
+_c_.vertical_bar_chart.stackedChart.getMaxStackHeight = function(dataCluster){
   var sumIf = _c_.utils.arrays.sumIf;
   var isPositive = function(x){ return (x > 0); };
 
@@ -26,7 +28,7 @@ var getMaxStackHeight = function(dataCluster){
   return currentMax;
 };
 
-var populateStackedVerticalBarChart = function(dataCluster, options){
+_c_.vertical_bar_chart.stackedChart.populate = function(dataCluster, options){
   this.clearData();
   var barWidth = 1 / dataCluster.length();
 
@@ -98,8 +100,8 @@ var populateStackedVerticalBarChart = function(dataCluster, options){
 };
 
 
-var createStackedVerticalBarChart = function(options){
-  var chart = createBaseBarChart(options);
+_c_.vertical_bar_chart.stackedChart.create = function(options){
+  var chart = _c_.vertical_bar_chart.baseChart.create(options);
 
   if (options.height) { chart.container.setHeight(options.height); }
   if (options.id) { chart.container.setId(options.id); }
@@ -121,12 +123,12 @@ var createStackedVerticalBarChart = function(options){
         yMin: Math.min(getMinStackHeight(dataCluster), 0) * paddingFactor,
         yLabelCount: 6
       };
-      setYAxisNumbers.call(this, yOptions, options);
+      _c_.vertical_bar_chart.baseChart.setYAxisNumbers.call(this, yOptions, options);
     };
   }
 
   if (!chart.setDataCluster){
-    chart.setDataCluster = populateStackedVerticalBarChart.bind(chart);
+    chart.setDataCluster = this.populate.bind(chart);
   }
 
   return chart;

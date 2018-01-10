@@ -1,6 +1,9 @@
 "use strict";
 
-var createBaseBarChart = function(options){
+_c_.vertical_bar_chart = {};
+_c_.vertical_bar_chart.baseChart = {};
+
+_c_.vertical_bar_chart.baseChart.create = function(options){
 
   var chart = {};
   chart.container = ChartObject.create('BarChartContainer', options);
@@ -44,7 +47,7 @@ var createBaseBarChart = function(options){
 };
 
 
-var setYAxisNumbers = function(yOptions, options){
+_c_.vertical_bar_chart.baseChart.setYAxisNumbers = function(yOptions, options){
   var utils = _c_.utils.arrays;
   var isMinGiven = (yOptions.yMin !== undefined);
   var isMaxGiven = (yOptions.yMax !== undefined);
