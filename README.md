@@ -4,10 +4,12 @@
 
 ### Example
 https://jtannas.github.io/
+[Simple Positive Bar Chart](https://i.imgur.com/0kzZujj.png)
 
 ### Quick Start Guide for using this on your webpage
 1) Include jQuery 3.2.1 or newer in your project
 2) Include every file from the charting directory in your project
+    [See this image for an example to follow](https://i.imgur.com/bnaMJgl.png)
 3) Draw a bar chart using `drawBarChart([1, 2, 3, 4, 5], {height: '500px'}, $('body'))`
 4) Keep reading this guide for more options
 
