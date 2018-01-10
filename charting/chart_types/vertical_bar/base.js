@@ -6,29 +6,29 @@ _c_.verticalBarChart.baseChart = {};
 _c_.verticalBarChart.baseChart.create = function(options){
 
   var chart = {};
-  chart.container = _c_.ChartObject.create('BarChartContainer', options);
+  chart.container = _c_.ChartObject.create('VBarChartContainer', options);
   if (!chart.build){
     chart.build = function(){
       return this.container.createElement();
     };
   }
 
-  chart.title = chart.container.addNewChild('BarChartTitle', options);
-  chart.graphContents = chart.container.addNewChild('BarChartGraphContent', options);
+  chart.title = chart.container.addNewChild('VBarChartTitle', options);
+  chart.graphContents = chart.container.addNewChild('VBarChartGraphContent', options);
 
-  chart.xAxis = chart.graphContents.addNewChild('BarChartXAxis', options);
+  chart.xAxis = chart.graphContents.addNewChild('VBarChartXAxis', options);
   if (!chart.xAxis.addLabel){
     chart.xAxis.addLabel = function(text, options) {
-      var xLabel = this.addNewChild('BarChartXAxisLabel', options);
+      var xLabel = this.addNewChild('VBarChartXAxisLabel', options);
       xLabel.setText(text);
       return xLabel;
     };
   }
 
-  chart.yAxis = chart.graphContents.addNewChild('BarChartYAxis', options);
+  chart.yAxis = chart.graphContents.addNewChild('VBarChartYAxis', options);
   if (!chart.yAxis.addLabel){
     chart.yAxis.addLabel = function(text, options){
-      var yLabel = this.addNewChild('BarChartYAxisLabel', options);
+      var yLabel = this.addNewChild('VBarChartYAxisLabel', options);
       yLabel.setText(text);
       return yLabel;
     };
@@ -39,7 +39,7 @@ _c_.verticalBarChart.baseChart.create = function(options){
     };
   }
 
-  chart.barArea = chart.graphContents.addNewChild('BarChartBarArea', options);
+  chart.barArea = chart.graphContents.addNewChild('VBarChartBarArea', options);
 
   if (!chart.clearData){
     chart.clearData = function(){

@@ -13,8 +13,8 @@ _c_.verticalBarChart.simpleChart.populate = function(dataSeries, options){
   var constrainBetween = _c_.utils.numbers.constrainBetween;
 
   dataSeries.dataPoints.forEach(function(dataPoint){
-    var bar = me.barArea.addNewChild('BarChartSingleBar', options);
-    var barValueLabel = bar.addNewChild('BarChartBarValueLabel', options);
+    var bar = me.barArea.addNewChild('VBarChartSingleBar', options);
+    var barValueLabel = bar.addNewChild('VBarChartBarValueLabel', options);
 
     var yData = me.yAxis.getLocationAsDecimal(dataPoint.value);
 

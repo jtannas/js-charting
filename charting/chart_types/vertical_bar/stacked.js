@@ -40,7 +40,7 @@ _c_.verticalBarChart.stackedChart.populate = function(dataCluster, options){
   var constrainBetween = _c_.utils.numbers.constrainBetween;
 
   dataCluster.dataSerieses.forEach(function(dataSeries){
-    var bar = me.barArea.addNewChild('BarChartStackedBar', options);
+    var bar = me.barArea.addNewChild('VBarChartStackedBar', options);
 
     var negativeDataPoints = dataSeries.dataPoints.filter(function(dP){ return dP.value < 0; });
     var positiveDataPoints = dataSeries.dataPoints.filter(function(dP){ return dP.value > 0; });
@@ -63,8 +63,8 @@ _c_.verticalBarChart.stackedChart.populate = function(dataCluster, options){
     bar.setBottom(decimalToPercentageText(yBarStart));
     bar.setWidth(decimalToPercentageText(barWidth));
 
-    var positiveBars = bar.addNewChild('BarChartStackedPositiveBarSection', options);
-    var negativeBars = bar.addNewChild('BarChartStackedNegativeBarSection', options);
+    var positiveBars = bar.addNewChild('VBarChartStackedPositiveBarSection', options);
+    var negativeBars = bar.addNewChild('VBarChartStackedNegativeBarSection', options);
     var barAbsSum = sumPositive - sumNegative;
     var positivePortion = sumPositive / barAbsSum;
     var negativePortion = 1 - positivePortion;
@@ -72,9 +72,9 @@ _c_.verticalBarChart.stackedChart.populate = function(dataCluster, options){
     negativeBars.setHeight(decimalToPercentageText(negativePortion));
 
     positiveDataPoints.reverse().forEach(function(dP){
-      var innerBar = positiveBars.addNewChild('BarChartStackedDataBar', options);
+      var innerBar = positiveBars.addNewChild('VBarChartStackedDataBar', options);
       var barText = dP.value.toString() + (options.units || '');
-      var barValueLabel = innerBar.addNewChild('BarChartBarValueLabel', options);
+      var barValueLabel = innerBar.addNewChild('VBarChartBarValueLabel', options);
       var barProportion = dP.value / sumPositive;
       innerBar.setHeight(decimalToPercentageText(barProportion));
       innerBar.setBackgroundColor(dP['background-color']);
@@ -83,9 +83,9 @@ _c_.verticalBarChart.stackedChart.populate = function(dataCluster, options){
     });
 
     negativeDataPoints.forEach(function(dP){
-      var innerBar = negativeBars.addNewChild('BarChartStackedDataBar', options);
+      var innerBar = negativeBars.addNewChild('VBarChartStackedDataBar', options);
       var barText = dP.value.toString() + (options.units || '');
-      var barValueLabel = innerBar.addNewChild('BarChartBarValueLabel', options);
+      var barValueLabel = innerBar.addNewChild('VBarChartBarValueLabel', options);
       var barProportion = dP.value / sumNegative;
       innerBar.setHeight(decimalToPercentageText(barProportion));
       innerBar.setBackgroundColor(dP['background-color']);
