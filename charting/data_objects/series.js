@@ -70,3 +70,11 @@ _c_.dataObjects.Series.prototype.minValue = function(){
 _c_.dataObjects.Series.prototype.length = function(){
   return this.dataPoints.length;
 };
+
+_c_.dataObjects.Cluster.prototype.sum = function(){
+  var sum = 0;
+  this.dataPoints.forEach(function(dataPoint){
+    sum += dataPoint.value;
+  });
+  return sum;
+};

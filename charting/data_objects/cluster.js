@@ -28,3 +28,10 @@ _c_.dataObjects.Cluster.prototype.minValue = function(){
 _c_.dataObjects.Cluster.prototype.length = function(){
   return this.dataSerieses.length;
 };
+
+_c_.dataObjects.Cluster.prototype.sum = function(){
+  var sum = 0;
+  this.dataSerieses.forEach(function(dataSeries){
+    sum += dataSeries.sum();
+  });
+};
