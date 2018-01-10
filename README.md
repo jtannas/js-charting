@@ -15,18 +15,18 @@ https://jtannas.github.io/
 The second parameter taken by the bar chart function is a javascript object. Its properties
 affect the resulting chart.
 
-- options.height: Sets the height of the resulting chart (using any CSS unit)
-- options.id: Sets the CSS id of the outermost container of the chart. This lets you apply 
+- `options.height`: Sets the height of the resulting chart (using any CSS unit)
+- `options.id`: Sets the CSS id of the outermost container of the chart. This lets you apply 
     css classes to any individual chart and its components using css selectors.
-- options.spacing: Sets the horizontal spacing between bars (using any CSS unit)
-- options.title: Sets the chart title.
-- options.units: Displays the units on the chart where appropriate
-- options.width: Sets the width of the resulting chart (using any CSS unit)
-- options.yAxis: Sets the scale of the yAxis
-    - options.yAxis.yMin: Sets the minimum of the yAxis
-    - options.yAxis.yMax: Sets the maximum of the yAxis
-    - options.yAxis.yStep: Sets the step between yAxis lable values
-    - options.yAxis.yLabelCount: Sets the number of yAxis labels
+- `options.spacing`: Sets the horizontal spacing between bars (using any CSS unit)
+- `options.title`: Sets the chart title.
+- `options.units`: Displays the units on the chart where appropriate
+- `options.width`: Sets the width of the resulting chart (using any CSS unit)
+- `options.yAxis`: Sets the scale of the yAxis
+    - `options.yAxis.yMin`: Sets the minimum of the yAxis
+    - `options.yAxis.yMax`: Sets the maximum of the yAxis
+    - `options.yAxis.yStep`: Sets the step between yAxis lable values
+    - `options.yAxis.yLabelCount`: Sets the number of yAxis labels
     - **IMPORTANT**: *Exactly* three (3) of the above options must be specified to define the yAxis
 
 P.S. I say "supported options" instead of options because every chart is fully customizable,
@@ -38,9 +38,9 @@ but I'd recommend reading the code if you're going to do that. The gist is speci
 More complex chart types (e.g. stacked bar charts) require more complex data structures as input data.
 These are defined within the charting/data_objects.
 The main ones are:
-- _c_.dataObjects.Point (aka. DataPoint): A single numberical value and associated metadata
-- _c_.dataObjects.Series (aka. DataSeries): An array of data points and associated metadata
-- _c_.dataObjects.Cluster (aka. DataCluster): An array of data serieses and associated metadata
+- `_c_.dataObjects.Point` (aka. DataPoint): A single numberical value and associated metadata
+- `_c_.dataObjects.Series` (aka. DataSeries): An array of data points and associated metadata
+- `_c_.dataObjects.Cluster` (aka. DataCluster): An array of data serieses and associated metadata
 
 Sample Usage:
 ```
@@ -135,8 +135,18 @@ Project Stretch - Bar Chart Project Instructions.pdf".
 
 ## To Do / Future Features:
 - Clean up the code for populating bar charts
+- Unit tests... So many unit tests to make...
 - Add support for adding bars to existing charts (related to cleaning up the logic)
 - Add an (optional) zero axis line to the bar charts
 - Add support for horizontal lines that match up to the y-axis ticks
 - Add support for clustered bars
+- Add support for chart legends
 - Add more chart types (someday)
+
+## Acknowledgements
+This was my first javascript project, my first API, my first project using OOP extensively, etc...
+I would've been completely lost if not for all the great online resources available to me.
+I've detailed the most significant ones in the file `learning-resources.yml`.
+
+Many thanks to Stack Overflow, for all the people who are good at what they do
+and are willing to share.
