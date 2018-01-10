@@ -60,10 +60,10 @@ $(document).ready(function(){
     yMin: -10
   };
   var dataCluster = DataCluster.new();
-  dataCluster.pushDataSeries(DataSeries.makeFromDataPointArray(data));
-  dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([1, 2, 3]));
-  dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([-1, -2, -3]));
-  dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([1, -2, 3]));
+  dataCluster.pushDataSeries(DataSeries.makeFromDataPointArray(data, {name: 'a'}));
+  dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([1, 2, 3], {name: 'b'}));
+  dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([-1, -2, -3], {name: 'c'}));
+  dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([1, -2, 3], {name: 'd'}));
   options.id = 'chart' + currentIdNumber++;
   drawBarChart(dataCluster, options, $('body'));
 
