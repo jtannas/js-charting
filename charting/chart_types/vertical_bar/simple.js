@@ -9,7 +9,7 @@ _c_.verticalBarChart.simpleChart.populate = function(dataSeries, options){
   var yZero = this.yAxis.getLocationAsDecimal(0);
 
   var me = this;
-  var decimalToPercentageText = _c_.utils.css.decimalToPercentageText;
+  var decimalToPercentageText = _c_.utils.numbers.decimalToPercentageText;
   var constrainBetween = _c_.utils.numbers.constrainBetween;
 
   dataSeries.dataPoints.forEach(function(dataPoint){

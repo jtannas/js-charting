@@ -13,3 +13,11 @@ _c_.utils.numbers.constrainBetween = function(x, min, max){
   }
   return result;
 };
+
+_c_.utils.numbers.decimalToPercentageText = function(decimal, decimalPlaces){
+  var percentage = decimal * 100;
+  if (!isNaN(decimalPlaces)){
+    percentage = percentage.toFixed(decimalPlaces);
+  }
+  return percentage + '%';
+};

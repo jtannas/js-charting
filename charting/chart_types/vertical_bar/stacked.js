@@ -36,7 +36,7 @@ _c_.verticalBarChart.stackedChart.populate = function(dataCluster, options){
   var yZero = this.yAxis.getLocationAsDecimal(0);
 
   var me = this;
-  var decimalToPercentageText = _c_.utils.css.decimalToPercentageText;
+  var decimalToPercentageText = _c_.utils.numbers.decimalToPercentageText;
   var constrainBetween = _c_.utils.numbers.constrainBetween;
 
   dataCluster.dataSerieses.forEach(function(dataSeries){
