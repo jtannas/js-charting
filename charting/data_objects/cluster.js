@@ -1,5 +1,9 @@
 "use strict";
 
+/**
+ * Defines the Cluster object, representing an array of Series objects and optional meta data.
+ * @constructor
+ */
 _c_.dataObjects.Cluster = function(options){
   this.dataSerieses = [];
   $.extend(this, options || {});

@@ -1,5 +1,9 @@
 "use strict";
 
+/**
+ * Defines the Series object, representing an array of Point objects and optional meta data.
+ * @constructor
+ */
 _c_.dataObjects.Series = function(options){
   this.dataPoints = [];
   $.extend(this, options || {});
@@ -30,6 +34,10 @@ _c_.dataObjects.Series.makeFromDataPointArray = function(dataPointArray, options
   return newSeries;
 };
 
+/**
+ * Alternative constructor function that inspects the given data and makes
+ * an attempt at constructing a Series from it.
+ */
 _c_.dataObjects.Series.makeFromBestGuess = function(data, options){
   if (data instanceof this){
     return data;

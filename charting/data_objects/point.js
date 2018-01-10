@@ -1,5 +1,9 @@
 "use strict";
 
+/**
+ * Defines the Point object, representing a single numerical value and optional meta data.
+ * @constructor
+ */
 _c_.dataObjects.Point = function(value, options){
   this.value = (value || null);
   $.extend(this, options || {});
