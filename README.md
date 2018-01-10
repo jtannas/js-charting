@@ -64,6 +64,8 @@ Supported data point options are currently:
 - name
 - background-color
 - background
+- valueLabelOptions: This is an object of css properties passed
+  to the data value labels (e.g. `{'font-size': '0.5em'}`);
 
 ### A final word on options:
 Any options passed into the the function are applied via HTML attributes. This is
