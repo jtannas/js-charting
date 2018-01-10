@@ -61,6 +61,10 @@ _c_.HtmlSpec.definitions._setObjectDefinition('VBarChartSingleBar', {
       'flex-basis': '0',
       'flex-grow': '1'
     }
+  },
+  setSpacing: function(spacing){
+    this._attributes.css['margin-right'] = spacing;
+    this._attributes.css['margin-left'] = spacing;
   }
 });
 
@@ -74,6 +78,10 @@ _c_.HtmlSpec.definitions._setObjectDefinition('VBarChartStackedBar', {
       'justify-content': 'flex-end',
       'position': 'relative'
     }
+  },
+  setSpacing: function(spacing){
+    this._attributes.css['margin-right'] = spacing;
+    this._attributes.css['margin-left'] = spacing;
   }
 });
 

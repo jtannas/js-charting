@@ -62,6 +62,7 @@ _c_.verticalBarChart.stackedChart.populate = function(dataCluster, options){
     bar.setHeight(decimalToPercentageText(yBarHeight));
     bar.setBottom(decimalToPercentageText(yBarStart));
     bar.setWidth(decimalToPercentageText(barWidth));
+    bar.setSpacing(options.spacing || '0');
 
     var positiveBars = bar.addNewChild('VBarChartStackedPositiveBarSection', options);
     var negativeBars = bar.addNewChild('VBarChartStackedNegativeBarSection', options);

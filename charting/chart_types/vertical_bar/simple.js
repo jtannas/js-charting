@@ -31,6 +31,7 @@ _c_.verticalBarChart.simpleChart.populate = function(dataSeries, options){
     bar.setHeight(decimalToPercentageText(yBarHeight));
     bar.setBottom(decimalToPercentageText(yBarBottom));
     bar.setWidth(decimalToPercentageText(barWidth));
+    bar.setSpacing(options.spacing || '0');
     barValueLabel.setText(barText);
 
     var labelText = dataPoint.name || dataPoint.value.toLocaleString();

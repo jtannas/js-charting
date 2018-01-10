@@ -32,6 +32,7 @@ $(document).ready(function(){
     yMax: 35,
     yLabelCount: 11
   };
+  options.spacing = '10px';
   options.id = 'chart' + currentIdNumber++;
   drawBarChart([15, 20, 25], options, $('body'));
 
@@ -41,6 +42,7 @@ $(document).ready(function(){
     yMax: 5,
     yStep: 5
   };
+  delete options.spacing;
   options.id = 'chart' + currentIdNumber++;
   drawBarChart([-15, -20, -5], options, $('body'));
 
