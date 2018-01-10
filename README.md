@@ -13,13 +13,16 @@ Here, I will be keeping a listing of the files and folders in the base directory
 and their purposes. Folders will have their own README.md files to explain them.
 
 #### `charting/`
-This is the base directory for the charting library contents.
+This is the base directory for the charting library contents. See the README inside for
+more information.
 
 #### `lighthouse_instructions/`
 This is a directory where the instructions that accompanied the assignment are stored.
+See the README inside for more information.
 
 #### `sample/`
-This is a directory where a sample usage of the library is given.
+This is a directory where a sample usage of the library is given. See the README inside for
+more information.
 
 #### `.editorconfig`
 This is a file given by lighthouse labs to help keep editor configurations consistent
