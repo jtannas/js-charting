@@ -104,6 +104,11 @@ code.
 #### `.gitignore`
 Tells git which files to exclude from version control.
 
+#### `index.html`
+The index.html is for demonstrating the results of calling the API. The intent
+is to be able to open the file in a browser and see the results. It's in the base
+directory because of how github pages works.
+
 #### `learning-resources.yml`
 This is a file listing out the various resources I used when learning how to build
 this project, along with notes on each of them.
