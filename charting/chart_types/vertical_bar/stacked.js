@@ -79,7 +79,7 @@ _c_.verticalBarChart.stackedChart.populate = function(dataCluster, options){
       innerBar.setHeight(decimalToPercentageText(barProportion));
       innerBar.setBackgroundColor(dP['background-color']);
       innerBar.setBackground(dP['background']);
-      barValueLabel.setText(dP.value);
+      barValueLabel.setText(barText);
     });
 
     negativeDataPoints.forEach(function(dP){
@@ -90,7 +90,7 @@ _c_.verticalBarChart.stackedChart.populate = function(dataCluster, options){
       innerBar.setHeight(decimalToPercentageText(barProportion));
       innerBar.setBackgroundColor(dP['background-color']);
       innerBar.setBackground(dP['background']);
-      barValueLabel.setText(dP.value);
+      barValueLabel.setText(barText);
     });
 
     var labelText = dataSeries.name || (sumNegative + sumPositive).toLocaleString();

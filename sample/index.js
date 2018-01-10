@@ -23,6 +23,7 @@ $(document).ready(function(){
 
   // Example Chart: All negative, array input, no yAxis settings
   options.id = 'chart' + currentIdNumber++;
+  options.units = '%';
   drawBarChart([-1, -2, -3, -4, -9], options, $('body'));
 
   // Example Chart: All positive, array input, clipped yAxis
