@@ -2,6 +2,10 @@
 
 $(document).ready(function(){
 
+  var DataPoint = _c_.dataObjects.Point;
+  var DataSeries = _c_.dataObjects.Series;
+  var DataCluster = _c_.dataObjects.Cluster;
+
   var options = {
     title: 'Chart',
     height: '500px'
@@ -55,7 +59,7 @@ $(document).ready(function(){
     yStep: 2,
     yMin: -10
   };
-  var dataCluster = new DataCluster();
+  var dataCluster = DataCluster.new();
   dataCluster.pushDataSeries(DataSeries.makeFromDataPointArray(data));
   dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([1, 2, 3]));
   dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([-1, -2, -3]));

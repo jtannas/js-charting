@@ -1,7 +1,7 @@
 "use strict";
 
 var drawSimpleVerticalBarChart = function(data, options, element){
-  var dataSeries = DataSeries.makeFromBestGuess(data);
+  var dataSeries = _c_.dataObjects.Series.makeFromBestGuess(data);
   var chart = _c_.verticalBarChart.simpleChart.create(options);
   chart.setDataSeries(dataSeries, options);
 
@@ -24,7 +24,7 @@ var drawStackedVerticalBarChart = function(dataCluster, options, element){
 };
 
 var drawBarChart = function(data, options, element){
-  if (data instanceof DataCluster){
+  if (data instanceof _c_.dataObjects.Cluster){
     return drawStackedVerticalBarChart(data, options, element);
   } else {
     return drawSimpleVerticalBarChart(data, options, element);
