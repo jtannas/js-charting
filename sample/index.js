@@ -57,13 +57,13 @@ $(document).ready(function(){
   drawBarChart([-15, -20, 4], options, $('body'));
 
   // Example Chart: Making use of data objects for meta data
-  var valueLabelOptions = {'font-size': '0.5em'}
+  var valueLabelCss = {'font-size': '0.5em'}
   var data = [
-    DataPoint.new(-1, {name: 'a', 'background-color': 'red', valueLabelOptions: valueLabelOptions}),
-    DataPoint.new(-2, {name: 'b', 'background-color': 'blue', valueLabelOptions: valueLabelOptions}),
-    DataPoint.new(-3, {name: 'c', 'background-color': 'green', valueLabelOptions: valueLabelOptions}),
-    DataPoint.new(4, {name: 'd', 'background-color': 'purple', valueLabelOptions: valueLabelOptions}),
-    DataPoint.new(5, {name: 'e', 'background-color': 'yellow', valueLabelOptions: valueLabelOptions})
+    DataPoint.new(-1, {name: 'a', css: {'background-color': 'red'}, valueLabelCss: valueLabelCss}),
+    DataPoint.new(-2, {name: 'b', css: {'background-color': 'blue'}, valueLabelCss: valueLabelCss}),
+    DataPoint.new(-3, {name: 'c', css: {'background-color': 'green'}, valueLabelCss: valueLabelCss}),
+    DataPoint.new(4, {name: 'd', css: {'background-color': 'purple'}, valueLabelCss: valueLabelCss}),
+    DataPoint.new(5, {name: 'e', css: {'background-color': 'yellow'}, valueLabelCss: valueLabelCss})
   ];
   options.id = 'chart' + currentIdNumber++;
   drawBarChart(data, options, $('body'));
