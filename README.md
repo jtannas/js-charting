@@ -55,6 +55,21 @@ var data = DataSeries.makeFromDataPointArray([
 drawBarChart(data, options, $('body'));
 ```
 
+Supported data point options are currently:
+- name
+- background-color
+- background
+
+### A final word on options:
+Any options passed into the the function are applied via HTML attributes. This is
+often convenient (e.g. for bar colors where the color is associated to the data).
+This doesn't play well with CSS stylesheets though, where you'll have to use
+the css `!important` flag to override them.
+
+My recommendation: Use options.id to set a unique id for each chart, and then use
+stylesheets to adjust the aesthetics. Your front end designer colleagues will
+thank you.
+
 ## Developer Guide
 This individual README is not an exhaustive explanation - there are README
 files in every directory. I'd suggest starting with ./charting/README.md
@@ -109,3 +124,11 @@ Project Stretch - Bar Chart Project Instructions.pdf".
 
 ## Known Issues
 - Floating bars don't always line up perfectly to the zero axis. It seems like a css rounding error.
+
+## To Do / Future Features:
+- Clean up the code for populating bar charts
+- Add support for adding bars to existing charts (related to cleaning up the logic)
+- Add an (optional) zero axis line to the bar charts
+- Add support for horizontal lines that match up to the y-axis ticks
+- Add support for clustered bars
+- Add more chart types (someday)
