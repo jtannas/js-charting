@@ -6,7 +6,7 @@ be passed in to graphs than raw numeric values. See the README inside for more
 details.
 
 
-## Listing
+## Listing (in load order)
 
 #### `point.js`
 Defines the Point object, representing a single numerical value and optional meta data.
