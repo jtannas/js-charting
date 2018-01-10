@@ -1,9 +1,9 @@
 "use strict";
 
-/** Namespace for the library
- *
+/** Namespace & pre-made subsections for the library
  */
 var _c_ = {
   utils: {},
-  dataObjects: {}
+  dataObjects: {},
+  draw: {}
 };

@@ -71,3 +71,16 @@ _c_.verticalBarChart.simpleChart.create = function(options){
 
   return chart;
 };
+
+
+_c_.draw.simpleVerticalBarChart = function(data, options, element){
+  var dataSeries = _c_.dataObjects.Series.makeFromBestGuess(data);
+  var chart = _c_.verticalBarChart.simpleChart.create(options);
+  chart.setDataSeries(dataSeries, options);
+
+  var htmlGraph = chart.build();
+  if (element) {
+    element.append(htmlGraph);
+  }
+  return htmlGraph;
+};

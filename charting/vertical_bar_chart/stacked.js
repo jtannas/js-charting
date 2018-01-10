@@ -133,3 +133,15 @@ _c_.verticalBarChart.stackedChart.create = function(options){
 
   return chart;
 };
+
+
+_c_.draw.stackedVerticalBarChart = function(dataCluster, options, element){
+  var chart = _c_.verticalBarChart.stackedChart.create(options);
+  chart.setDataCluster(dataCluster, options);
+
+  var htmlGraph = chart.build();
+  if (element) {
+    element.append(htmlGraph);
+  }
+  return htmlGraph;
+};
