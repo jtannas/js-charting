@@ -12,3 +12,7 @@ _c_.dataObjects.Point = function(value, options){
 _c_.dataObjects.Point.new = function(value, options){
   return (new this(value, options));
 };
+
+_c_.dataObjects.Point.prototype.sum = function(){
+  return this.value;
+}
