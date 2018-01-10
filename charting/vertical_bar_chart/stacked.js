@@ -111,9 +111,11 @@ _c_.verticalBarChart.stackedChart.create = function(options){
   if (!chart.yAxis.setYAxisNumbers){
     chart.yAxis.setYAxisNumbers = function(dataCluster, options){
       var paddingFactor = 1.1;
+      var getMax = _c_.verticalBarChart.stackedChart.getMaxStackHeight;
+      var getMin = _c_.verticalBarChart.stackedChart.getMinStackHeight;
       var yOptions = options.yAxis || {
-        yMax: Math.max(getMaxStackHeight(dataCluster), 0) * paddingFactor,
-        yMin: Math.min(getMinStackHeight(dataCluster), 0) * paddingFactor,
+        yMax: Math.max(getMax(dataCluster), 0) * paddingFactor,
+        yMin: Math.min(getMin(dataCluster), 0) * paddingFactor,
         yLabelCount: 6
       };
       _c_.verticalBarChart.baseChart.setYAxisNumbers.call(this, yOptions, options);

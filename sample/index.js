@@ -66,5 +66,9 @@ $(document).ready(function(){
   dataCluster.pushDataSeries(DataSeries.makeFromNumericalArray([1, -2, 3]));
   options.id = 'chart' + currentIdNumber++;
   drawBarChart(dataCluster, options, $('body'));
+
+  delete options.yAxis;
+  options.id = 'chart' + currentIdNumber++;
+  drawBarChart(dataCluster, options, $('body'));
 });
 
