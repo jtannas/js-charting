@@ -53,11 +53,11 @@ var DataSeries = _c_.dataObjects.Series;
 var DataCluster = _c_.dataObjects.Cluster;
 
 var data = DataSeries.makeFromDataPointArray([
-  DataPoint.new(1, {name: 'a', 'background-color': 'red'}),
-  DataPoint.new(2, {name: 'b', 'background-color': 'blue'}),
-  DataPoint.new(3, {name: 'c', 'background-color': 'green'}),
-  DataPoint.new(4, {name: 'd', 'background-color': 'purple'}),
-  DataPoint.new(5, {name: 'e', 'background-color': 'yellow'})
+  DataPoint.new(1, {name: 'a', css: {'background-color': 'red'}),
+  DataPoint.new(2, {name: 'b', css: {'background-color': 'orange'}),
+  DataPoint.new(3, {name: 'c', css: {'background-color': 'yellow'}),
+  DataPoint.new(4, {name: 'd', css: {'background-color': 'green'}),
+  DataPoint.new(5, {name: 'e', css: {'background-color': 'blue'})
 ]);
 drawBarChart(data, options, $('body'));
 ```
