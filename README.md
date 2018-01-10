@@ -2,6 +2,9 @@
 
 ## User Guide
 
+### Example
+https://jtannas.github.io/
+
 ### Quick Start Guide for using this on your webpage
 1) Include jQuery 3.2.1 or newer in your project
 2) Include every file from the charting directory in your project
