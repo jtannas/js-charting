@@ -14,6 +14,9 @@ _c_.verticalBarChart.baseChart.create = function(options){
   }
 
   chart.title = chart.container.addNewChild('VBarChartTitle', options);
+  if (options.titleOptions){
+    chart.title.extendCss(options.titleOptions);
+  }
   chart.graphContents = chart.container.addNewChild('VBarChartGraphContent', options);
 
   chart.xAxis = chart.graphContents.addNewChild('VBarChartXAxis', options);

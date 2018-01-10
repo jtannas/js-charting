@@ -12,6 +12,7 @@ $(document).ready(function(){
   // set default chart options
   var options = {
     title: 'Chart',
+    titleOptions: {'font-size': '2em'},
     height: '500px',
     width: '500px'
   };

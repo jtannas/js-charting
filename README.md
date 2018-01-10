@@ -20,6 +20,8 @@ affect the resulting chart.
     css classes to any individual chart and its components using css selectors.
 - `options.spacing`: Sets the horizontal spacing between bars (using any CSS unit)
 - `options.title`: Sets the chart title.
+- `options.titleOptions`: This is an object of css properties passed to the title. Eg.
+    `{'font-size': '2em'}`
 - `options.units`: Displays the units on the chart where appropriate
 - `options.width`: Sets the width of the resulting chart (using any CSS unit)
 - `options.yAxis`: Sets the scale of the yAxis
