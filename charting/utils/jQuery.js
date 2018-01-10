@@ -1,5 +1,17 @@
 "use strict";
 
+/**
+ * Sets the attributes of a jQuery element from an attributes object.
+ *
+ * jQuery has special functions for applying certain attributes to elements.
+ * e.g. $.css allows an object of css properties to be applied as a style string
+ * e.g. *.html sets the inner HTML of an object
+ *
+ * This function is a passthrough to these functions, allowing all HTML attributes
+ * to be specified using a single object.
+ *
+ * @param {object} attributesObject - an object whose properties match HTML attributes
+ */
 $.fn.extend({
   setAttrs: function(attributesObject){
     return this.each(function() {
