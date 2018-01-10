@@ -33,6 +33,11 @@ _c_.verticalBarChart.baseChart.create = function(options){
       return yLabel;
     };
   }
+  if (!chart.yAxis.getLocationAsDecimal){
+    chart.yAxis.getLocationAsDecimal = function(value){
+      return (value - this.yMin) / (this.yMax - this.yMin);
+    };
+  }
 
   chart.barArea = chart.graphContents.addNewChild('BarChartBarArea', options);
 

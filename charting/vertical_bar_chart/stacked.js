@@ -108,13 +108,6 @@ _c_.verticalBarChart.stackedChart.create = function(options){
   if (options.title) { chart.title.setText(options.title); }
   if (options.width) { chart.container.setWidth(options.width); }
 
-
-  if (!chart.yAxis.getLocationAsDecimal){
-    chart.yAxis.getLocationAsDecimal = function(value){
-      return (value - this.yMin) / (this.yMax - this.yMin);
-    };
-  }
-
   if (!chart.yAxis.setYAxisNumbers){
     chart.yAxis.setYAxisNumbers = function(dataCluster, options){
       var paddingFactor = 1.1;

@@ -59,12 +59,6 @@ _c_.verticalBarChart.simpleChart.create = function(options){
     };
   }
 
-  if (!chart.yAxis.getLocationAsDecimal){
-    chart.yAxis.getLocationAsDecimal = function(value){
-      return (value - this.yMin) / (this.yMax - this.yMin);
-    };
-  }
-
   if (!chart.setDataSeries){
     chart.setDataSeries = this.populate.bind(chart);
   }
