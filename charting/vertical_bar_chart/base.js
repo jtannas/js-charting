@@ -6,7 +6,7 @@ _c_.verticalBarChart.baseChart = {};
 _c_.verticalBarChart.baseChart.create = function(options){
 
   var chart = {};
-  chart.container = ChartObject.create('BarChartContainer', options);
+  chart.container = _c_.ChartObject.create('BarChartContainer', options);
   if (!chart.build){
     chart.build = function(){
       return this.container.createElement();
