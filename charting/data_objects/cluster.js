@@ -1,11 +1,12 @@
 "use strict";
 
-_c_.dataObjects.Cluster = function(){
+_c_.dataObjects.Cluster = function(options){
   this.dataSerieses = [];
+  $.extend(this, options || {});
 };
 
-_c_.dataObjects.Cluster.new = function(){
-  return new this();
+_c_.dataObjects.Cluster.new = function(options){
+  return new this(options);
 };
 
 _c_.dataObjects.Cluster.prototype.pushDataSeries = function(dataSeries){

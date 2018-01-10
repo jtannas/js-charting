@@ -1,7 +1,8 @@
 "use strict";
 
-_c_.dataObjects.Series = function(){
+_c_.dataObjects.Series = function(options){
   this.dataPoints = [];
+  $.extend(this, options || {});
 };
 
 _c_.dataObjects.Series.prototype.pushPoint = function(dataPoint){
@@ -12,36 +13,39 @@ _c_.dataObjects.Series.prototype.pushNumber = function(number, options){
   this.dataPoints.push(_c_.dataObjects.Point.new(number, options));
 };
 
-_c_.dataObjects.Series.makeFromNumericalArray = function(dataArray){
+_c_.dataObjects.Series.makeFromNumericalArray = function(dataArray, options){
   var newSeries = new this();
   dataArray.forEach(function(value){
     var pointName = value.toLocaleString();
     newSeries.pushNumber(value, {name: pointName});
   });
+  $.extend(newSeries, options);
   return newSeries;
 };
 
-_c_.dataObjects.Series.makeFromDataPointArray = function(dataPointArray){
+_c_.dataObjects.Series.makeFromDataPointArray = function(dataPointArray, options){
   var newSeries = new this();
   newSeries.dataPoints = dataPointArray;
+  $.extend(newSeries, options);
   return newSeries;
 };
 
-_c_.dataObjects.Series.makeFromBestGuess = function(data){
+_c_.dataObjects.Series.makeFromBestGuess = function(data, options){
   if (data instanceof this){
     return data;
   } else if (data instanceof Array) {
-    var dataSeries = new this();
+    var newSeries = new this();
     data.forEach(function(element){
       if (element instanceof _c_.dataObjects.Point){
-        dataSeries.pushPoint(element);
+        newSeries.pushPoint(element);
       } else if (!isNaN(element)) {
-        dataSeries.pushNumber(element);
+        newSeries.pushNumber(element);
       } else {
         throw 'Could not create DataPoint from element: ' + element;
       }
     });
-    return dataSeries;
+    $.extend(newSeries, options);
+    return newSeries;
   } else {
     throw 'Unable to make data series from provided data';
   }
