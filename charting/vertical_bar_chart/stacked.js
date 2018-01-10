@@ -1,8 +1,8 @@
 "use strict";
 
-_c_.vertical_bar_chart.stackedChart = {};
+_c_.verticalBarChart.stackedChart = {};
 
-_c_.vertical_bar_chart.stackedChart.getMinStackHeight = function(dataCluster){
+_c_.verticalBarChart.stackedChart.getMinStackHeight = function(dataCluster){
   var sumIf = _c_.utils.arrays.sumIf;
   var isNegative = function(x){ return (x < 0); };
 
@@ -15,7 +15,7 @@ _c_.vertical_bar_chart.stackedChart.getMinStackHeight = function(dataCluster){
   return currentMin;
 };
 
-_c_.vertical_bar_chart.stackedChart.getMaxStackHeight = function(dataCluster){
+_c_.verticalBarChart.stackedChart.getMaxStackHeight = function(dataCluster){
   var sumIf = _c_.utils.arrays.sumIf;
   var isPositive = function(x){ return (x > 0); };
 
@@ -28,7 +28,7 @@ _c_.vertical_bar_chart.stackedChart.getMaxStackHeight = function(dataCluster){
   return currentMax;
 };
 
-_c_.vertical_bar_chart.stackedChart.populate = function(dataCluster, options){
+_c_.verticalBarChart.stackedChart.populate = function(dataCluster, options){
   this.clearData();
   var barWidth = 1 / dataCluster.length();
 
@@ -100,8 +100,8 @@ _c_.vertical_bar_chart.stackedChart.populate = function(dataCluster, options){
 };
 
 
-_c_.vertical_bar_chart.stackedChart.create = function(options){
-  var chart = _c_.vertical_bar_chart.baseChart.create(options);
+_c_.verticalBarChart.stackedChart.create = function(options){
+  var chart = _c_.verticalBarChart.baseChart.create(options);
 
   if (options.height) { chart.container.setHeight(options.height); }
   if (options.id) { chart.container.setId(options.id); }
@@ -123,7 +123,7 @@ _c_.vertical_bar_chart.stackedChart.create = function(options){
         yMin: Math.min(getMinStackHeight(dataCluster), 0) * paddingFactor,
         yLabelCount: 6
       };
-      _c_.vertical_bar_chart.baseChart.setYAxisNumbers.call(this, yOptions, options);
+      _c_.verticalBarChart.baseChart.setYAxisNumbers.call(this, yOptions, options);
     };
   }
 

@@ -1,8 +1,8 @@
 "use strict";
 
-_c_.vertical_bar_chart.simpleChart = {};
+_c_.verticalBarChart.simpleChart = {};
 
-_c_.vertical_bar_chart.simpleChart.populate = function(dataSeries, options){
+_c_.verticalBarChart.simpleChart.populate = function(dataSeries, options){
   this.clearData();
   var barWidth = 1 / dataSeries.length();
   this.yAxis.setYAxisNumbers(dataSeries, options);
@@ -39,9 +39,9 @@ _c_.vertical_bar_chart.simpleChart.populate = function(dataSeries, options){
   });
 };
 
-_c_.vertical_bar_chart.simpleChart.create= function(options){
+_c_.verticalBarChart.simpleChart.create = function(options){
 
-  var chart = _c_.vertical_bar_chart.baseChart.create(options);
+  var chart = _c_.verticalBarChart.baseChart.create(options);
 
   if (options.height) { chart.container.setHeight(options.height); }
   if (options.id) { chart.container.setId(options.id); }
@@ -55,7 +55,7 @@ _c_.vertical_bar_chart.simpleChart.create= function(options){
         yMin: Math.min(dataSeries.minValue(), 0),
         yLabelCount: 6
       };
-      _c_.vertical_bar_chart.baseChart.setYAxisNumbers.call(this, yOptions, options);
+      _c_.verticalBarChart.baseChart.setYAxisNumbers.call(this, yOptions, options);
     };
   }
 

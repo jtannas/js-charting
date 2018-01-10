@@ -2,5 +2,5 @@
  *
  */
 var _c_ = {
-  utils: {},
+  utils: {}
 };
