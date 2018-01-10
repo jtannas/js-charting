@@ -15,4 +15,4 @@ _c_.dataObjects.Point.new = function(value, options){
 
 _c_.dataObjects.Point.prototype.sum = function(){
   return this.value;
-}
+};
