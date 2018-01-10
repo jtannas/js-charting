@@ -1,8 +1,16 @@
 "use strict";
+/**
+ * Vertical Bar Chart (VBarChart) HtmlSpecs supplementary properties are defined here
+ *  _c_.HtmlSpec.definitions is for functionally required properties
+ *  _c_.HtmlSpec.settings is for aesthetic properties or overriding the definitions
+ *  These definitions and settings are independent of each other - think of
+ *    them as building blocks.
+ */
+
 
 _c_.HtmlSpec.settings._setObjectSettings('VBarChartContainer', {
   '_attributes': {
-    'class': 'bar_chart',
+    'class': 'bar-chart',
     'css': {
       'background-color': 'white',
       'border': '1px solid black'
@@ -11,6 +19,7 @@ _c_.HtmlSpec.settings._setObjectSettings('VBarChartContainer', {
 });
 
 _c_.HtmlSpec.settings._setObjectSettings('VBarChartBarArea', {
+  'class': 'bar-area',
   '_attributes': {
     'class': 'bar-area'
   }

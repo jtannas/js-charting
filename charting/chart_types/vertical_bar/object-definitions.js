@@ -1,4 +1,12 @@
 "use strict";
+/**
+ *  Vertical Bar Chart (VBarChart) HtmlSpecs, setters, and getters are defined here
+ *  _c_.HtmlSpec.definitions is for functionally required properties
+ *  _c_.HtmlSpec.settings is for aesthetic properties or overriding the definitions
+ *  These definitions and settings are independent of each other - think of
+ *    them as building blocks.
+ */
+
 
 _c_.HtmlSpec.definitions._setObjectDefinition('VBarChartContainer', {
   '_attributes': {
@@ -12,7 +20,6 @@ _c_.HtmlSpec.definitions._setObjectDefinition('VBarChartContainer', {
 
 _c_.HtmlSpec.definitions._setObjectDefinition('VBarChartBarArea', {
   '_attributes': {
-    'class': 'bar-area',
     'css': {
       'align-items': 'flex-end',
       'display': 'flex',
@@ -55,7 +62,6 @@ _c_.HtmlSpec.definitions._setObjectDefinition('VBarChartGraphContent', {
 
 _c_.HtmlSpec.definitions._setObjectDefinition('VBarChartSingleBar', {
   '_attributes': {
-    'class': 'single-bar',
     'css': {
       'position': 'relative',
       'flex-basis': '0',
@@ -106,7 +112,6 @@ _c_.HtmlSpec.definitions._setObjectDefinition('VBarChartXAxis', {
 
 _c_.HtmlSpec.definitions._setObjectDefinition('VBarChartXAxisLabel', {
   '_attributes': {
-    'class': 'x-axis-label',
     'css': {
       'flex': '1'
     }
