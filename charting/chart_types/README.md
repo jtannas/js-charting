@@ -7,4 +7,4 @@ vertical bar charts) and the code for creating & drawing them.
 
 #### `vertical_bar`
 This subdirectory is for vertical bar charts (the bars are vertical). See its
-READEME for more information.
+README for more information.
