@@ -3,7 +3,8 @@
 This folder is for creating vertical bar charts (the bars are vertical).
 
 ## Dependencies
-- Core dependencies
+- core dependencies
+- core/*.js
 - utils/*.js
 - data_objects(Point, Series, Cluster)
 
@@ -14,7 +15,7 @@ Provides the HtmlSpec definitions for the vertical bar chart objects. See
 charting/core/chart-object-definitions.js for an explanation.
 
 #### `object-settings.js`
-Provides the HtmlSpec settins for the vertical bar chart objects. See 
+Provides the HtmlSpec settings for the vertical bar chart objects. See 
 charting/core/chart-object-settings.js for an explanation.
 
 #### `base.js`
