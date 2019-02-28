@@ -11,7 +11,7 @@ element from a single Javascript object.
 
 ## The HtmlSpec Idea
 
-- The `_type` string tells it what type of HTML tag it is (e.g. 'div' -> <div></div>)
+- The `_type` string tells it what type of HTML tag it is (e.g. 'div' -> `<div></div>`)
 - The `_attributes` object tells it its HTML attributes (i.e. id, class, etc...)
 - The `_children` array is a listing of its nested html elements, which are built recursively.
 
