@@ -3,7 +3,6 @@
 ## User Guide
 
 ### Example
-https://jtannas.github.io/
 [Simple Positive Bar Chart](https://i.imgur.com/0kzZujj.png)
 
 ### Quick Start Guide for using this on your webpage
